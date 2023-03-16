@@ -5,7 +5,7 @@
 
 <input class="mb-3 border px-3 py-2 text-sm"
     type="{{ $type }}"
-    name="photo"
-    id="id"
+    name="{{ $name }}"
+    id="{{ $name }}"
     required
 >

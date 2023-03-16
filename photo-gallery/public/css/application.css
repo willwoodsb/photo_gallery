@@ -1,0 +1,17 @@
+.width {
+  width: 1000px; }
+
+.nav-item {
+  position: relative; }
+
+.dropdown {
+  display: none;
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+  bottom: -20px; }
+
+.nav-item:hover .dropdown {
+  display: block; }
+
+/*# sourceMappingURL=application.css.map */

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\SubCategory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -18,7 +19,8 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'image_path' => fake()->sentence() 
+            'sub_category_id' => SubCategory::inRandomOrder()->first()->id,
+            'photo' => 'https://picsum.photos/seed/'.fake()->unique()->word.'/1920/1080'
         ];
     }
 }
