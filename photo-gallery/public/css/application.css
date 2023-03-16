@@ -3,12 +3,14 @@
 
 .nav-item {
   position: relative;
-  border-bottom: 1px solid white; }
+  border-bottom: 3px solid #A84420; }
 
 .active {
-  border-right: 1px solid white;
-  border-left: 1px solid white;
-  border-top: 1px solid white;
+  margin-right: -1px;
+  margin-left: -1px;
+  border-right: 1px solid #A84420;
+  border-left: 1px solid #A84420;
+  border-top: 1px solid #A84420;
   border-bottom: none; }
 
 .dropdown {
@@ -16,12 +18,21 @@
   position: absolute;
   transform: translate(-50%, 0);
   left: 50%;
-  top: 64px; }
+  top: 64px;
+  border-right: 1px solid #A84420;
+  border-left: 1px solid #A84420;
+  border-bottom: 1px solid #A84420; }
 
 .nav-item:hover .dropdown {
   visibility: visible; }
 
 .dropdown:hover {
   display: block; }
+
+.nav-link {
+  transition: ease .25s; }
+
+.nav-item:hover .nav-link {
+  transform: translate(0, -3px); }
 
 /*# sourceMappingURL=application.css.map */
