@@ -7,11 +7,12 @@ $light-midnight : lighten(#435060, 40%);
     padding-right: 15px;
     width: 100%;
     @media screen and (min-width: 481px) {
-        margin-left: auto;
-        margin-right: auto;
-        width: 400px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     @media screen and (min-width: 768px) {
+        margin-left: auto;
+        margin-right: auto;
         width: 700px;
     }
     @media screen and (min-width: 1024px) {
@@ -24,6 +25,7 @@ $light-midnight : lighten(#435060, 40%);
 .nav-item {
     position: relative;
     border-bottom: 1px solid $midnight;
+    z-index: 50;
     
 }
 .active {
@@ -70,5 +72,32 @@ $light-midnight : lighten(#435060, 40%);
 
 .text-midnight {
     color: $midnight;
+}
+
+.title-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+    background-color: rgba(0,0,0,0.4);
+    &__inner {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+    }
+}
+
+.image-container {
+    cursor: pointer;
+    position: relative;
+    &:hover {
+        .title-overlay {
+            display: block;
+        }
+        
+    }
 }
 

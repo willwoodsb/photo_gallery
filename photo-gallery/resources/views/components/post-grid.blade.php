@@ -1,34 +1,38 @@
 @props(['posts'])
 
-<div class="grid gap-2 grid-cols-6">
+<div class="grid gap-2 grid-cols-1 sm:grid-cols-6">
     @foreach($posts as $post)
-        <div class="<?php
+        <div class="image-container<?php
             if ($posts->count() == 3) {
                 if ($loop->first) {
-                    echo 'col-span-6';
+                    echo ' sm:col-span-6';
                 } else {
-                    echo 'col-span-3';
+                    echo ' sm:col-span-3';
                 }
             } else if ($posts->count() == 2 || $posts->count() == 1) {
-                echo 'col-span-3';
+                echo ' sm:col-span-6';
             } else if ($posts->count() % 3 == 2) {
                 if ($loop->first || $loop->index == 1) {
-                    echo 'col-span-3';
+                    echo ' sm:col-span-3';
                 } else {
-                    echo 'col-span-2';
+                    echo ' sm:col-span-2';
                 }
             } else if ($posts->count() % 3 == 1) {
                 if ($loop->first) {
-                    echo 'col-span-6';
+                    echo ' sm:col-span-6';
                 } else {
-                    echo 'col-span-2';
+                    echo ' sm:col-span-2';
                 }
             } else {
-                echo 'col-span-2';
+                echo ' sm:col-span-2';
             } ?>">
             <img src="{{$post->photo}}" alt="{{$post->title}}" class=""/>
-            <div class="hidden">
-                <p class="text-gray-200 text-sm text-center">{{$post->title}}</p>
+
+            <div class="title-overlay">
+                <div class="title-overlay__inner">
+                    <p class="text-gray-200 text-sm text-center">{{ucwords($post->title)}}</p>
+                </div>
+                
             </div>
         </div>
         
