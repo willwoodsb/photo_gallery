@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/cbfcb73618.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{{ asset('css/owl-carousel/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/application.css') }}">
     </head>
@@ -19,8 +20,7 @@
 
     <body class="bg-gray-100 font-medium" style="font-family: 'Montserrat', sans-serif">
         <header>
-            <nav class="flex flex-row justify-center mx-auto pt-4">
-            <div class="nav-item w-full"></div>
+            <nav class="flex flex-row justify-center mx-auto pt-4 width">
                 <div class="nav-item">
                     <a href="/" class="flex flex-col justify-center text-center text-midnight h-16 py-2 nav-link">
                         <div class="uppercase p-2">
@@ -55,7 +55,6 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="nav-item w-full"></div>
             </nav>
         </header>
         
@@ -65,8 +64,10 @@
             </div>
         </section>
 
-        <footer>
-
+        <footer class="width">
+            <div class="footer-container mt-8 py-4">
+                <p class="text-center">this is the footer content</p>
+            </div>
         </footer>
 
         <script
@@ -75,11 +76,7 @@
             crossorigin="anonymous">
         </script>
         <script src="{{ asset('js/owl.carousel.min.js') }}"></script> 
-        <script>
-            $(document).ready(function(){
-                $('.owl-carousel').owlCarousel();
-            });
-        </script>
+        <script src="{{ asset('js/application.js') }}"></script> 
         
         
     </body>

@@ -26,10 +26,11 @@
             } else {
                 echo ' sm:col-span-2';
             } ?>">
-            <img src="{{$post->photo}}" alt="{{$post->title}}" class=""/>
+            <img src="{{$post->photo}}" alt="{{$post->title}}" class="" id="{{$loop->index}}"/>
 
             <div class="title-overlay">
-                <div class="title-overlay__inner">
+                <i class="fa-solid fa-plus top-right"></i>
+                <div class="title-overlay__inner">  
                     <p class="text-gray-200 text-sm text-center">{{ucwords($post->title)}}</p>
                 </div>
                 
@@ -37,5 +38,13 @@
         </div>
         
     @endforeach
+</div>
+
+<div id="slide-overlay">
+    <div class="owl-carousel">
+        @foreach ($posts as $post)
+            <img src="{{$post->photo}}" alt="{{$post->title}}"/>
+        @endforeach
+    </div>
 </div>
 
