@@ -1,17 +1,37 @@
+$midnight : darken(#435060, 20%);
+$light-midnight : lighten(#435060, 40%);
+
 .width {
-    width: 1000px;
+    
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    @media screen and (min-width: 481px) {
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+    }
+    @media screen and (min-width: 768px) {
+        width: 700px;
+    }
+    @media screen and (min-width: 1024px) {
+        width: 950px;
+    }
+    @media screen and (min-width: 1280px) {
+        width: 1100px;
+    }
 }
 .nav-item {
     position: relative;
-    border-bottom: 3px solid #A84420;
+    border-bottom: 1px solid $midnight;
     
 }
 .active {
     margin-right: -1px;
     margin-left: -1px;
-    border-right: 1px solid #A84420;
-    border-left: 1px solid #A84420;
-    border-top: 1px solid #A84420;
+    border-right: 1px solid $midnight;
+    border-left: 1px solid $midnight;
+    border-top: 1px solid $midnight;
     border-bottom: none;
 }
 .dropdown {
@@ -20,9 +40,9 @@
     transform: translate(-50%, 0);
     left: 50%;
     top: 64px;
-    border-right: 1px solid #A84420;
-    border-left: 1px solid #A84420;
-    border-bottom: 1px solid #A84420;
+    border-right: 1px solid $midnight;
+    border-left: 1px solid $midnight;
+    border-bottom: 1px solid $midnight;
 }
 .nav-item:hover {
     .dropdown {
@@ -42,5 +62,13 @@
     .nav-link {
         transform: translate(0, -3px);
     }
+}
+
+.bg-midnight {
+    background-color: $midnight;
+}
+
+.text-midnight {
+    color: $midnight;
 }
 

@@ -23,7 +23,7 @@ class CategoryController extends Controller
 
 
         return view('category', [
-            'posts' => Post::latest()->whereIn('sub_category_id', $id_array)->simplePaginate(9),
+            'posts' => Post::latest()->whereIn('sub_category_id', $id_array)->paginate(9),
             'category' => $category
         ]);
     }
