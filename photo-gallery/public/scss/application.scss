@@ -130,19 +130,33 @@ $light-midnight : lighten(#435060, 40%);
         left: 50%;
         transform: translate(-50%, -50%);
         width: 70%;
+        max-height: fit-content;
+    }
+    .owl-stage-outer {
+        width: calc(100% - 2px);
+    }
+    .owl-dots {
+        display: none;
+    }
+    img {
+        max-height: 70vh;
     }
 }
 
-.owl-nav {
+.arrow {
     position: fixed;
+    cursor: pointer;
     top: 50%;
     transform: translate(0, -50%);
-    width: calc(100% + 120px);
+    width: 100%;
     color: white;
     display: flex;
     justify-content: space-between;
-    margin: 0 -60px;
-    span {
-        font-size: 100px;
+    padding: 0 8%;
+    i {
+        font-size: 30px;
+        @media screen and (min-width: 768px) {
+            font-size: 50px;
+        }
     }
 }

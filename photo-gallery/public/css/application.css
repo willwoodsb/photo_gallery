@@ -102,18 +102,29 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%; }
+    width: 70%;
+    max-height: fit-content; }
+  #slide-overlay .owl-stage-outer {
+    width: calc(100% - 2px); }
+  #slide-overlay .owl-dots {
+    display: none; }
+  #slide-overlay img {
+    max-height: 70vh; }
 
-.owl-nav {
+.arrow {
   position: fixed;
+  cursor: pointer;
   top: 50%;
   transform: translate(0, -50%);
-  width: calc(100% + 120px);
+  width: 100%;
   color: white;
   display: flex;
   justify-content: space-between;
-  margin: 0 -60px; }
-  .owl-nav span {
-    font-size: 100px; }
+  padding: 0 8%; }
+  .arrow i {
+    font-size: 30px; }
+    @media screen and (min-width: 768px) {
+      .arrow i {
+        font-size: 50px; } }
 
 /*# sourceMappingURL=application.css.map */

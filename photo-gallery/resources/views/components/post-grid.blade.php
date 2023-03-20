@@ -43,8 +43,17 @@
 <div id="slide-overlay">
     <div class="owl-carousel">
         @foreach ($posts as $post)
-            <img src="{{$post->photo}}" alt="{{$post->title}}"/>
+            <div id="img-{{$loop->index}}">
+                <img src="{{$post->photo}}" alt="{{$post->title}}"/>
+                <p class="title-text text-center text-white pt-4 font-thin">{{ucwords($post->title)}}</p>
+            </div>
+            
         @endforeach
     </div>
+    <div class="arrow">
+        <i class="fa-solid fa-chevron-left arrow-left"></i>
+        <i class="fa-solid fa-chevron-right arrow-right"></i>
+    </div>
+    
 </div>
 

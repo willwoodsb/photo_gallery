@@ -20,7 +20,7 @@
 
     <body class="bg-gray-100 font-medium" style="font-family: 'Montserrat', sans-serif">
         <header>
-            <nav class="flex flex-row justify-center mx-auto pt-4 width">
+            <nav class="flex flex-row justify-center mx-auto pt-4 width hidden">
                 <div class="nav-item">
                     <a href="/" class="flex flex-col justify-center text-center text-midnight h-16 py-2 nav-link">
                         <div class="uppercase p-2">
