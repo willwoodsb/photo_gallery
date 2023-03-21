@@ -26,7 +26,12 @@
             } else {
                 echo ' sm:col-span-2';
             } ?>">
-            <img src="{{$post->photo}}" alt="{{$post->title}}" class="" id="{{$loop->index}}"/>
+            <img src="<?php 
+            if (str_contains($post->photo, 'https://picsum.photos')) {
+                echo $post->photo;
+            } else {
+                echo asset('photos/'.$post->photo); 
+            } ?>" alt="{{$post->title}}" class="" id="{{$loop->index}}"/>
 
             <div class="title-overlay">
                 <i class="fa-solid fa-plus top-right"></i>
@@ -44,7 +49,12 @@
     <div class="owl-carousel">
         @foreach ($posts as $post)
             <div id="img-{{$loop->index}}">
-                <img src="{{$post->photo}}" alt="{{$post->title}}"/>
+                <img src="<?php 
+            if (str_contains($post->photo, 'https://picsum.photos')) {
+                echo $post->photo;
+            } else {
+                echo asset('photos/'.$post->photo); 
+            } ?>" alt="{{$post->title}}"/>
                 <p class="title-text text-center text-white pt-4 font-thin">{{ucwords($post->title)}}</p>
             </div>
             

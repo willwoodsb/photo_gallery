@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,5 +18,12 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/category/{category:slug}', [CategoryController::class, 'index']);
 
-Route::get('admin', [PostController::class, 'create']);
-Route::post('admin', [PostController::class, 'store']);
+Route::get('admin/photos/add', [PostController::class, 'create'])->middleware('admin');
+Route::post('admin/photos/add', [PostController::class, 'store'])->middleware('admin');
+
+Route::get('admin', [AdminController::class, 'index'])->middleware('admin');
+
+Route::post('admin/logout', [SessionsController::class, 'destroy'])->middleware('admin');
+
+Route::get('admin/login', [SessionsController::class, 'create'])->middleware('guests');
+Route::post('admin/login', [SessionsController::class, 'store'])->middleware('guests');

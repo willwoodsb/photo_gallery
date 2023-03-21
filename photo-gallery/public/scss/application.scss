@@ -1,5 +1,6 @@
 
 
+$aspect-factor : 56.25%;
 
 $midnight : darken(#435060, 20%);
 $light-midnight : lighten(#435060, 40%);
@@ -29,7 +30,7 @@ $light-midnight : lighten(#435060, 40%);
     position: relative;
     border-bottom: 1px solid $midnight;
     z-index: 50;
-    
+    padding: 0;
 }
 .active {
     margin-right: -1px;
@@ -96,11 +97,21 @@ $light-midnight : lighten(#435060, 40%);
 .image-container {
     cursor: pointer;
     position: relative;
+    padding-top: $aspect-factor;
+    overflow: hidden;
     &:hover {
         .title-overlay {
             display: block;
         }
         
+    }
+    img {
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
     }
 }
 

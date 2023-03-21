@@ -1,5 +1,5 @@
 
-<x-layout :category="$category">
+<x-frontend-layout :category="$category">
 
     <h1 class=" mb-6 text-md font-medium">
         @if (request('sub-cat'))
