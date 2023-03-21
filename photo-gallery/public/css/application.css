@@ -137,4 +137,10 @@
       .arrow i {
         font-size: 50px; } }
 
+td, th {
+  padding: 10px 10px; }
+
+th {
+  text-align: left; }
+
 /*# sourceMappingURL=application.css.map */

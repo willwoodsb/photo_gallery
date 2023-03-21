@@ -1,10 +1,12 @@
+@props(['title'])
+
 <!doctype html>
 
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel From Scratch Blog</title>
+        <title>{{$title}} | Marko Shapiro Photos</title>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

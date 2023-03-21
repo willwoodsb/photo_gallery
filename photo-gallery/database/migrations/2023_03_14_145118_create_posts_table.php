@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('sub_category_id');
-            $table->string('title');
+            $table->string('title')->unique();
             $table->string('photo');
+            $table->string('slug')->unique();
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
         });

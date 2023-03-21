@@ -171,3 +171,12 @@ $light-midnight : lighten(#435060, 40%);
         }
     }
 }
+
+td, th {
+    padding: 10px 10px;
+}
+
+th {
+    text-align: left;
+}
+

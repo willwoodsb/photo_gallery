@@ -17,10 +17,14 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        return [
+        $columns = [
             'title' => fake()->sentence(),
             'sub_category_id' => SubCategory::inRandomOrder()->first()->id,
             'photo' => 'https://picsum.photos/seed/'.fake()->unique()->word.'/1920/1080'
         ];
+
+        $columns['slug'] = str_replace(' ', '-', strtolower($columns['title']));
+
+        return $columns;
     }
 }

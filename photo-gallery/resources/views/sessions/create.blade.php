@@ -1,4 +1,4 @@
-<x-base-layout>
+<x-base-layout title="Login | Admin">
     <div class="h-screen flex flex-col justify-center">
         <x-layout-card class="w-96 mx-auto">
             <h1 class="font-bold text-lg mb-3 text-center uppercase">Login</h1>

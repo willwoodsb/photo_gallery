@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\SubCategory;
 use App\Models\Category;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -28,10 +29,12 @@ class PostController extends Controller
     {
 
         $attributes = request()->validate([
-            'title' => 'required',
+            'title' => ['required', Rule::unique('posts', 'title')],
             'photo' => 'required|image',
             'sub_category_id' => 'required'
         ]);
+
+        $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['title']));
 
         $imageName = time() . '.' . $attributes['photo']->extension();
         $attributes['photo']->move(public_path('photos'), $imageName);
