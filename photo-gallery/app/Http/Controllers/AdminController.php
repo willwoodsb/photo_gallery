@@ -7,7 +7,6 @@ use App\Models\Post;
 use App\Models\SubCategory;
 use App\Models\Category;
 use Illuminate\Validation\Rule;
-use Image;
 
 class AdminController extends Controller
 {
@@ -38,18 +37,12 @@ class AdminController extends Controller
 
         $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['title']));
 
-        // $imageName = time() . '.' . $attributes['photo']->extension();
-        // $attributes['photo']->move(public_path('photos'), $imageName);
-        // $attributes['photo'] = $imageName;
-
-        $imageResize = Image::make($attributes['photo'])->encode('webp', 90);
-        if ($imageResize->width() > 380){
-            $imageResize->resize(380, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-        }
+        $imageResize = \Image::make($attributes['photo'])->encode('webp', 90);
         $destinationPath = public_path('/photos/');
-        $imageResize->save($destinationPath.$attributes['slug']);
+        $path = $attributes['slug'].time().'.webp';
+        $imageResize->save($destinationPath.$path);
+
+        $attributes['photo'] = $path;
         
 
         Post::create($attributes);
@@ -77,9 +70,12 @@ class AdminController extends Controller
         $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['title']));
 
         if (isset($attributes['photo'])) {
-            $imageName = time() . '.' . $attributes['photo']->extension();
-            $attributes['photo']->move(public_path('photos'), $imageName);
-            $attributes['photo'] = $imageName;
+            $imageResize = \Image::make($attributes['photo'])->encode('webp', 90);
+            $destinationPath = public_path('/photos/');
+            $path = $attributes['slug'].time().'.webp';
+            $imageResize->save($destinationPath.$path);
+
+            $attributes['photo'] = $path;
         }
 
         
