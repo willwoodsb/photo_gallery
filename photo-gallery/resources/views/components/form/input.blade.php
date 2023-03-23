@@ -8,7 +8,7 @@
         type="{{ $type }}"
         name="{{ $name }}"
         id="{{ $name }}"
-        required
+        {{ $attributes(['value' => old($name)]) }}
     >
 
     @error($name)

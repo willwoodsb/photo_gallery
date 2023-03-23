@@ -15,7 +15,7 @@
             <p class="text-lg mb-2">Links</p>
             <x-admin.dashboard-link href="/admin" text="Dashboard" />
             <x-admin.dashboard-link href="/admin/photos/add" text="Add Photos" />
-            <x-admin.dashboard-link href="/admin/subcategories/edit" text="Edit Sub-Categories" />
+            <x-admin.dashboard-link href="/admin/subcategories" text="Edit Sub-Categories" />
         </div>       
         <div class="form-element w-full md:ml-4">
             

@@ -64,6 +64,19 @@ $('.arrow-left').on('click', function() {
     changeSlide(currentSlide);
 })
 
+$(".delete").submit(function(e) {
+    if ($(e.target).hasClass('delete-subCat')) {
+        $message = 'Are you sure you want to delete this sub category and its associated photos?';
+    } else {
+        $message = "Are you sure you want to delete this post?";
+    }
+    if (confirm($message)) {
+        return true;
+    } else {
+        return false;
+    }
+});
+
 
 function addTransition(target, time) {
     $(target).css('transition', `${time}s ease`);

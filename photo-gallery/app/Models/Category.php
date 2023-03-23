@@ -11,14 +11,6 @@ class Category extends Model
 
     protected $guarded = [];
 
-    public function scopeFilter($query)
-    {
-        if (request('sub-cat')) {
-            $query
-                ->where('sub_category_id', request('sub-cat'));
-        }
-    }
-
     public function subCategories()
     {
         return $this->hasMany(SubCategory::class);

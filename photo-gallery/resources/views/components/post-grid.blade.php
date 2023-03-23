@@ -60,10 +60,13 @@
             
         @endforeach
     </div>
+
+    @unless ($posts->count() < 2)
     <div class="arrow">
         <i class="fa-solid fa-chevron-left arrow-left"></i>
         <i class="fa-solid fa-chevron-right arrow-right"></i>
     </div>
+    @endunless
     
 </div>
 
