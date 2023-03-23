@@ -31,8 +31,8 @@ Route::delete('admin/subcategories/delete/{subCategory:slug}', [SubCategoryContr
 Route::get('admin/subcategories/edit/{subCategory:slug}', [SubCategoryController::class, 'edit'])->middleware('admin');
 Route::patch('admin/subcategories/edit/{subCategory:slug}', [SubCategoryController::class, 'update'])->middleware('admin');
 
-Route::get('admin/subcategories/add', [AdminController::class, 'create'])->middleware('admin');
-Route::post('admin/subcategories/add', [AdminController::class, 'store'])->middleware('admin');
+Route::get('admin/subcategories/add', [SubCategoryController::class, 'create'])->middleware('admin');
+Route::post('admin/subcategories/add', [SubCategoryController::class, 'store'])->middleware('admin');
 
 Route::get('admin', [AdminController::class, 'index'])->middleware('admin');
 

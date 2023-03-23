@@ -14,7 +14,7 @@
                     @foreach ($categories as $cat)
                         <option 
                             value="{{$cat->id}}"
-                        >{{ucwords($cat->name)}}
+                        >{{$cat->name}}
                         </option>
                     @endforeach
                 </select>

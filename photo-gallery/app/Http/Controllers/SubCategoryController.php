@@ -25,6 +25,22 @@ class SubCategoryController extends Controller
         ]);
     }
 
+    public function store()
+    {
+
+        $attributes = request()->validate([
+            'name' => ['required', Rule::unique('sub_categories', 'name')],
+            'category_id' => 'required'
+        ]);
+
+        $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['name']));
+        
+
+        SubCategory::create($attributes);
+
+        return redirect('/admin/subcategories');
+    }
+
     public function destroy(SubCategory $subCategory)
     {
         $subCategory->delete();

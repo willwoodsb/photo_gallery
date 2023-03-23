@@ -14,10 +14,10 @@
                     for="sub_category_id">Category</label>
                 <select id="sub_category_id" class="mb-3 border px-3 py-2 text-sm" name="sub_category_id" required>
                     @foreach ($categories as $cat)
-                        <optgroup label="{{ucwords($cat->name)}}">
+                        <optgroup label="{{$cat->name}}">
                             @foreach ($subCategories as $subCat)
                                 @if ($subCat->category_id == $cat->id)
-                                    <option value="{{$subCat->id}}">{{ucwords($subCat->name)}}</option>
+                                    <option value="{{$subCat->id}}">{{$subCat->name}}</option>
                                 @endif
                             @endforeach
                         </optgroup>

@@ -16,6 +16,7 @@
             <x-admin.dashboard-link href="/admin" text="Dashboard" />
             <x-admin.dashboard-link href="/admin/photos/add" text="Add Photos" />
             <x-admin.dashboard-link href="/admin/subcategories" text="Edit Sub-Categories" />
+            <x-admin.dashboard-link href="/admin/subcategories/add" text="Add Sub-Category" />
         </div>       
         <div class="form-element w-full md:ml-4">
             
