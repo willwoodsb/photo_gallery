@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\FeaturedController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,7 @@ use App\Http\Controllers\SubCategoryController;
 |
 */
 
+Route::get('/', [FeaturedController::class, 'index']);
 Route::get('/category/{category:slug}', [CategoryController::class, 'index']);
 
 Route::get('admin/photos/add', [AdminController::class, 'create'])->middleware('admin');

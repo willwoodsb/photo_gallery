@@ -24,6 +24,7 @@ class CategoryController extends Controller
 
         return view('category', [
             'posts' => Post::latest()->whereIn('sub_category_id', $id_array)->paginate(9),
+            'categories' => Category::all(),
             'category' => $category
         ]);
     }

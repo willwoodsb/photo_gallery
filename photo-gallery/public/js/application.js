@@ -5,6 +5,7 @@ $(document).ready(function(){
         items : 1,
     });
 
+
     const photoNumber = function () {
             let i = 0;
             while ($(`#${i}`).length) {
@@ -14,8 +15,28 @@ $(document).ready(function(){
     }
 
     photoCount = photoNumber();
+    featuredHeight();
 
 });
+
+function timeLoop() {
+    setTimeout(function() {
+        $(`#${currentSlide}`).fadeOut(300);
+        if (currentSlide < photoCount-1) {
+            currentSlide++ 
+        } else {
+            currentSlide = 0;
+        }
+        setTimeout(function() {
+            $(`#${currentSlide}`).fadeIn(300);
+            timeLoop();
+        }, 300);
+    }, 5000)
+}
+if ($('.featured').length) {
+    timeLoop();
+}
+
 
 
 
@@ -77,6 +98,32 @@ $(".delete").submit(function(e) {
     }
 });
 
+$(window).on('resize', function(){
+    featuredHeight();
+})
+
+open = false;
+$('.open').on('click', function(e) {
+    getTarget(e);
+    if (!open) {
+        $(`#sub-${$item}`).slideDown(200);
+        rotate($(`#rotate-${$item}`), 180);
+        open = true;
+    } else {
+        rotate($(`#rotate-${$item}`), 0);
+        $(`#sub-${$item}`).slideUp(200);
+        open = false;
+    }
+    
+})
+
+$('.open-menu').on('click', function() {
+    $('.side-menu').addClass('side-menu-open');
+})
+$('.close-menu').on('click', function() {
+    $('.side-menu').removeClass('side-menu-open');
+})
+
 
 function addTransition(target, time) {
     $(target).css('transition', `${time}s ease`);
@@ -89,4 +136,22 @@ function changeSlide (currentSlide) {
     $('.owl-item').removeClass('active');
     $(`#img-${currentSlide}`).parent().addClass('active');
     $('.owl-stage').css('transform', `translate3d(${-1 * currentSlide * $('.owl-item').width()}px, 0, 0)`);
+}
+
+function featuredHeight() {
+    let height = $(window).height() - $('header').height();
+    $('.featured').css('height', height-1);
+}
+
+function getTarget(e) {
+    if ($(e.target).hasClass('rotate')) {
+        $target = $(e.target).parent().attr('id');
+    } else {
+        $target = $(e.target).attr('id');
+    }
+    $item = $target.substr(5);
+}
+
+function rotate($target, amount) {
+    $target.css('rotate', `${amount}deg`)
 }

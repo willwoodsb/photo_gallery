@@ -22,15 +22,23 @@
   position: relative;
   border-bottom: 1px solid #191e24;
   z-index: 50;
-  padding: 0; }
+  padding: 0;
+  width: calc(100% / 5); }
+  .nav-item-home {
+    border-bottom: none; }
+
+.border-bottom {
+  border-bottom: 1px solid #191e24; }
 
 .active {
-  margin-right: -1px;
-  margin-left: -1px;
+  margin-right: -1px !important;
+  margin-left: -1px !important;
   border-right: 1px solid #191e24;
   border-left: 1px solid #191e24;
   border-top: 1px solid #191e24;
   border-bottom: none; }
+  .active .dropdown {
+    width: calc(100% + 2px); }
 
 .dropdown {
   visibility: collapse;
@@ -73,6 +81,48 @@
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%; }
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden; }
+
+.featured {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden; }
+  .featured img {
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: 100%; }
+  .featured .cat-link {
+    position: absolute;
+    top: 60%;
+    left: 65%;
+    color: white;
+    font-size: 40px;
+    justify-content: flex-end;
+    transform: translate(-50%, -50%); }
+    @media screen and (min-width: 768px) {
+      .featured .cat-link {
+        font-size: 60px; }
+        .featured .cat-link .cat-line {
+          margin-top: -20px; } }
+    .featured .cat-link a {
+      text-align: right;
+      text-shadow: 0px 0px 50px black; }
+    .featured .cat-link .cat-line {
+      width: 0;
+      transition: .25s ease; }
+    .featured .cat-link:hover .cat-line {
+      width: 100% !important;
+      margin-left: 5px; }
+
+.featured-item {
+  display: none; }
+  .featured-item-active {
+    display: block; }
 
 .image-container {
   cursor: pointer;
@@ -142,5 +192,33 @@ td, th {
 
 th {
   text-align: left; }
+
+.lg-menu {
+  display: none; }
+  @media screen and (min-width: 768px) {
+    .lg-menu {
+      display: flex; } }
+
+.menu-line, .logo-line {
+  transition: ease .25s; }
+
+.menu:hover .menu-line {
+  width: 25px !important; }
+.menu:hover .logo-line {
+  margin-right: 5px;
+  width: 15px !important; }
+
+.side-menu {
+  position: fixed;
+  width: 280px;
+  height: 100vh;
+  z-index: 10000;
+  right: -280px;
+  transition: .3s ease; }
+  .side-menu-open {
+    right: 0; }
+
+.open:focus {
+  border: none; }
 
 /*# sourceMappingURL=application.css.map */

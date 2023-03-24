@@ -12,7 +12,12 @@
 
                 <label class="uppercase font-semibold text-xs mb-3"
                     for="sub_category_id">Category</label>
-                <select id="sub_category_id" class="mb-3 border px-3 py-2 text-sm" name="sub_category_id" required>
+                <select 
+                    id="sub_category_id" 
+                    class="mb-3 border px-3 py-2 text-sm" 
+                    name="sub_category_id" 
+                    required
+                >
                     @foreach ($categories as $cat)
                         <optgroup label="{{$cat->name}}">
                             @foreach ($subCategories as $subCat)

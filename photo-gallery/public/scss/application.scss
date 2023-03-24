@@ -31,14 +31,25 @@ $light-midnight : lighten(#435060, 40%);
     border-bottom: 1px solid $midnight;
     z-index: 50;
     padding: 0;
+    width: calc(100% / 5);
+    &-home {
+        border-bottom: none;
+    }
+}
+
+.border-bottom {
+    border-bottom: 1px solid $midnight;
 }
 .active {
-    margin-right: -1px;
-    margin-left: -1px;
+    margin-right: -1px!important;
+    margin-left: -1px!important;
     border-right: 1px solid $midnight;
     border-left: 1px solid $midnight;
     border-top: 1px solid $midnight;
     border-bottom: none;
+    .dropdown {
+        width: calc(100% + 2px);
+    }
 }
 .dropdown {
     visibility: collapse;
@@ -93,6 +104,61 @@ $light-midnight : lighten(#435060, 40%);
         left: 50%;
     }
 }
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.featured {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    img {
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+    .cat-link {
+        position: absolute;
+        top: 60%;
+        left: 65%;
+        color: white;
+        font-size: 40px;
+        @media screen and (min-width: 768px) {
+            font-size: 60px;
+            .cat-line {
+                margin-top: -20px;
+            }
+        }
+        justify-content: flex-end;
+        transform: translate(-50%, -50%);
+        a {
+            text-align: right;
+            text-shadow: 0px 0px 50px black;
+        }
+        .cat-line {
+            width: 0;
+            transition: .25s ease;
+        }
+        &:hover {
+            .cat-line {
+                width: 100%!important;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+.featured-item {
+    display: none;
+    &-active {
+        display: block;
+    }
+}
+
 
 .image-container {
     cursor: pointer;
@@ -179,4 +245,42 @@ td, th {
 th {
     text-align: left;
 }
+
+.lg-menu {
+    display: none;
+    @media screen and (min-width: 768px) {
+        display: flex;
+    }
+}
+
+.menu-line, .logo-line {
+    transition: ease .25s;
+}
+
+.menu:hover {
+    .menu-line {
+        width: 25px!important;
+    }
+    .logo-line {
+        margin-right: 5px;
+        width: 15px!important;
+    }
+}
+
+.side-menu {
+    position: fixed;
+    width: 280px;
+    height: 100vh;
+    z-index: 10000;
+    right: -280px;
+    transition: .3s ease;
+    &-open {
+        right: 0;
+    }
+}
+
+.open:focus {
+    border: none;
+}
+
 

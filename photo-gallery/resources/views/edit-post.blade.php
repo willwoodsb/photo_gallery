@@ -9,7 +9,7 @@
                 @csrf
                 @method('PATCH')
                 <x-form.input name="title" :value="old('title', $post->title)"/>
-                <x-form.input type="file" name="photo" />
+                <x-form.input type="file" name="Replace Photo" required=""/>
                 <img class="mb-4" src="<?php 
                     if (str_contains($post->photo, 'https://picsum.photos')) {
                         echo $post->photo;
@@ -19,7 +19,12 @@
 
                 <label class="uppercase font-semibold text-xs mb-3"
                     for="sub_category_id">Category</label>
-                <select id="sub_category_id" class="mb-3 border px-3 py-2 text-sm" name="sub_category_id" required>
+                <select 
+                    id="sub_category_id" 
+                    class="mb-3 border px-3 py-2 text-sm" 
+                    name="sub_category_id"
+                    required
+                >
                     @foreach ($categories as $cat)
                         <optgroup label="{{ucwords($cat->name)}}">
                             @foreach ($subCategories as $subCat)

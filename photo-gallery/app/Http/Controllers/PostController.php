@@ -10,11 +10,5 @@ use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-        return view('category', [
-            'posts' => Post::latest()->paginate(6)
-        ]);
-    }
-
+    //
 }

@@ -1,5 +1,6 @@
 <x-base-layout title="{{ucwords($category->name)}}">
-    <x-frontend-layout :category="$category">
+    <x-side-menu :categories="$categories" />
+    <x-frontend-layout :category="$category" :categories="$categories">
 
         <h1 class=" mb-6 text-md font-medium">
             @if (request('sub-cat'))

@@ -1,4 +1,4 @@
-@props(['name', 'type' => 'text'])
+@props(['name', 'type' => 'text', 'required' => 'required'])
 
 <div class="mb-4 flex flex-col">
     <label class="uppercase font-semibold text-xs mb-3"
@@ -9,6 +9,7 @@
         name="{{ $name }}"
         id="{{ $name }}"
         {{ $attributes(['value' => old($name)]) }}
+        {{$required}}
     >
 
     @error($name)
