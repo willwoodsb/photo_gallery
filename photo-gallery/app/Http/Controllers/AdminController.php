@@ -37,12 +37,7 @@ class AdminController extends Controller
 
         $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['title']));
 
-        $imageResize = \Image::make($attributes['photo'])->encode('webp', 90);
-        $destinationPath = public_path('/photos/');
-        $path = $attributes['slug'].time().'.webp';
-        $imageResize->save($destinationPath.$path);
-
-        $attributes['photo'] = $path;
+        $attributes['photo'] = $this->toWebp($attributes);
         
 
         Post::create($attributes);
@@ -70,12 +65,7 @@ class AdminController extends Controller
         $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['title']));
 
         if (isset($attributes['photo'])) {
-            $imageResize = \Image::make($attributes['photo'])->encode('webp', 90);
-            $destinationPath = public_path('/photos/');
-            $path = $attributes['slug'].time().'.webp';
-            $imageResize->save($destinationPath.$path);
-
-            $attributes['photo'] = $path;
+            $attributes['photo'] = $this->toWebp($attributes);
         }
 
         
@@ -87,8 +77,22 @@ class AdminController extends Controller
 
     public function destroy(Post $post)
     {
+        if (substr($post->photo, 0, 5) != 'https') {
+            unlink(public_path('/photos/').$post->photo);
+        }
+        
         $post->delete();
 
         return redirect('/admin')->with('success', 'Post deleted.');
+    }
+
+    public function toWebp($attributes) 
+    {
+        $imageResize = \Image::make($attributes['photo'])->encode('webp', 90);
+        $destinationPath = public_path('/photos/');
+        $path = $attributes['slug'].time().'.webp';
+        $imageResize->save($destinationPath.$path);
+
+        return $path;
     }
 }

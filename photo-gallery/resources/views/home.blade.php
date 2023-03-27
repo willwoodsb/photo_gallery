@@ -35,7 +35,10 @@
         <div class="">
             <div class="featured">
                 @foreach ($posts as $post)
-                    <div class="featured-item {{$loop->first ? 'featured-item-active': ''}}" id="{{$loop->index}}">
+                    @php
+                        $featured_cat = $post->category;
+                    @endphp
+                    <div class="featured-item" id="{{$featured_cat->id - 1}}">
                         <img src="<?php 
                             if (str_contains($post->photo, 'https://picsum.photos')) {
                                 echo $post->photo;
@@ -43,15 +46,10 @@
                                 echo asset('photos/'.$post->photo); 
                             } ?>" alt="{{$post->title}}"
                         />
+                        <div class="overlay"></div>
                         <div class="cat-link flex flex-col">
-                            @php
-                                $id = $loop->index + 1;
-                            @endphp
-                            @foreach ($categories as $category)
-                                @if ($category->id == $id)
-                                    <a href="/category/{{$category->slug}}">{{$category->name}}</a>
-                                @endif
-                            @endforeach
+                            <a class="uppercase font-bold" href="/category/{{$featured_cat->slug}}">{{$featured_cat->name}}</a>
+
                             <div class="h-px bg-white my-auto cat-line"></div>
                         </div>
                         

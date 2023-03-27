@@ -17,12 +17,17 @@ $(document).ready(function(){
     photoCount = photoNumber();
     featuredHeight();
 
+    if ($('.featured').length) {
+        $(`#0`).fadeIn(300);
+    }
+    
+
 });
 
 function timeLoop() {
     setTimeout(function() {
         $(`#${currentSlide}`).fadeOut(300);
-        if (currentSlide < photoCount-1) {
+        if (currentSlide < photoCount - 1) {
             currentSlide++ 
         } else {
             currentSlide = 0;
@@ -31,7 +36,7 @@ function timeLoop() {
             $(`#${currentSlide}`).fadeIn(300);
             timeLoop();
         }, 300);
-    }, 5000)
+    }, 6000)
 }
 if ($('.featured').length) {
     timeLoop();

@@ -12,7 +12,7 @@
             @endif
             >
             @if (request('sub-cat'))
-                {{ucwords($posts[0]->subCategory->name)}}
+                {{ucwords(str_replace('-', ' ', request('sub-cat')))}}
             @else
                 All
             @endif
