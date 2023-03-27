@@ -31,7 +31,7 @@
                 if (str_contains($post->photo, 'https://picsum.photos')) {
                     echo $post->photo;
                 } else {
-                    echo asset('photos/'.$post->photo); 
+                    echo public_path('/photos/').$post->photo; 
                 } ?>" alt="{{$post->title}}" class="" id="{{$loop->index}}"/>
 
                 <div class="title-overlay">
@@ -54,7 +54,7 @@
                 if (str_contains($post->photo, 'https://picsum.photos')) {
                     echo $post->photo;
                 } else {
-                    echo asset('photos/'.$post->photo); 
+                    echo public_path('/photos/').$post->photo; 
                 } ?>" alt="{{$post->title}}"/>
                     <p class="title-text text-center text-white pt-4 font-thin">{{ucwords($post->title)}}</p>
                 </div>

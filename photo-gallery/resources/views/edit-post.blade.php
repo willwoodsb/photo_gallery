@@ -14,7 +14,7 @@
                     if (str_contains($post->photo, 'https://picsum.photos')) {
                         echo $post->photo;
                     } else {
-                        echo asset('photos/'.$post->photo); 
+                        echo public_path('/photos/').$post->photo; 
                     } ?>" alt="{{$post->title}}"/>
 
                 <label class="uppercase font-semibold text-xs mb-3"
