@@ -12,7 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/cbfcb73618.js" crossorigin="anonymous"></script>
-        @vite(['resources/css/owl-carousel/owl.carousel.min.css', 'resources/css/application.css'])
+        <link href="/css/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+        <link href="/css/app.css" rel="stylesheet">
     </head>
         
 
@@ -26,9 +27,8 @@
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
             crossorigin="anonymous">
         </script>
-        <!-- <script src="{{ resource_path('js/owl.carousel.min.js') }}"></script> 
-        <script src="{{ resource_path('js/application.js') }}"></script>  -->
-        @vite(['resources/js/owl.carousel.min.js', 'resources/js/application.js'])
+        <script src="/js/owl.carousel.min.js"></script> 
+        <script src="/js/app.js"></script> 
         
         
     </body>

@@ -7,6 +7,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\FeaturedController;
+use App\Http\Controllers\NotFoundController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
