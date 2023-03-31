@@ -12,7 +12,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/cbfcb73618.js" crossorigin="anonymous"></script>
-        <link href="/css/owl-carousel/owl.carousel.min.css" rel="stylesheet">
         <link href="/css/app.css" rel="stylesheet">
     </head>
         
@@ -27,7 +26,6 @@
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
             crossorigin="anonymous">
         </script>
-        <script src="/js/owl.carousel.min.js"></script> 
         <script src="/js/app.js"></script> 
         
         

@@ -7,7 +7,7 @@
                 enctype="multipart/form-data"
             >
                 @csrf
-                <x-form.input name="title"/>
+                <x-form.input name="title" required=""/>
                 <x-form.input type="file" name="photo"/>
 
                 <label class="uppercase font-semibold text-xs mb-3"

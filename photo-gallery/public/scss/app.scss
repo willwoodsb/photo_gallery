@@ -180,7 +180,7 @@ body {
     }
     img {
         position: absolute;
-        object-fit: cover;
+        object-fit: contain;
         top: 0;
         right: 0;
         left: 0;
@@ -208,23 +208,22 @@ body {
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.9);
-    .owl-carousel {
-        position: absolute;
+    .slide-container {
+        max-height: 90vh;
+        width: 70vw;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 70%;
-        max-height: fit-content;
-    }
-    .owl-stage-outer {
-        width: calc(100% - 2px);
-    }
-    .owl-dots {
         display: none;
+        img {
+            max-height: calc(90vh - 50px);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
     }
-    img {
-        max-height: 70vh;
-    }
+
 }
 
 .arrow {
@@ -289,5 +288,18 @@ th {
 .open:focus {
     border: none;
 }
+
+.sticky {
+    position: fixed;
+    bottom: -56px;
+    right: 20px;
+    transition: .5s;
+    &-reveal {
+        bottom: 20px;
+    }
+}
+
+
+
 
 

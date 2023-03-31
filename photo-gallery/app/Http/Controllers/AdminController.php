@@ -30,10 +30,14 @@ class AdminController extends Controller
     {
 
         $attributes = request()->validate([
-            'title' => ['required', Rule::unique('posts', 'title')],
-            'photo' => 'required|image|max:10240',
+            'title' => [Rule::unique('posts', 'title')],
+            'photo' => 'required|image',
             'sub_category_id' => 'required'
         ]);
+
+        if (!isset($attributes['title'])) {
+            $attributes['title'] = strtok($attributes['photo']->getClientOriginalName(), '.');
+        }
 
         $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['title']));
 
@@ -89,6 +93,11 @@ class AdminController extends Controller
     public function toWebp($attributes) 
     {
         $imageResize = \Image::make($attributes['photo'])->encode('webp', 90);
+        if ($imageResize->width() > 1080){
+            $imageResize->resize(1080, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
         $destinationPath = public_path('/photos/');
         $path = $attributes['slug'].time().'.webp';
         $imageResize->save($destinationPath.$path);

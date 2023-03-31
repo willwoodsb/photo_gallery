@@ -40,13 +40,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Team Clambin',
             'slug' => 'team-clambin'
         ]);
-        SubCategory::factory(30)->create();
-        Post::factory(100)->create();
-        foreach (Category::all() as $category) {
+        //SubCategory::factory(30)->create();
+        //Post::factory(100)->create();
+        //foreach (Category::all() as $category) {
 
-            Featured::factory()->create([
-                'post_id' => $category->posts->random()->id,
-            ]);
-        }
+        //     Featured::factory()->create([
+        //         'post_id' => $category->posts->random()->id,
+        //     ]);
+        // }
     }
 }

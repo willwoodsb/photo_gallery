@@ -1,4 +1,5 @@
 <x-base-layout title="{{ucwords($category->name)}}">
+    <x-scroll-top />
     <x-side-menu :categories="$categories" />
     <x-frontend-layout :category="$category" :categories="$categories">
 
@@ -19,7 +20,7 @@
         </h1>
         <x-post-grid :posts="$posts"/>
 
-        <div class="mt-6">
+        <div class="my-6">
             {{$posts->links()}}
         </div>
         

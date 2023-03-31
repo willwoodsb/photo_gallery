@@ -47,9 +47,9 @@
     </div>
 
     <div id="slide-overlay">
-        <div class="owl-carousel">
+        <div class="slides">
             @foreach ($posts as $post)
-                <div id="img-{{$loop->index}}">
+                <div id="img-{{$loop->index}}" class="flex flex-col justify-center slide-container">
                     <img src="<?php 
                 if (str_contains($post->photo, 'https://picsum.photos')) {
                     echo $post->photo;
