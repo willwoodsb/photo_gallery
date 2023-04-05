@@ -63,7 +63,8 @@ class AdminController extends Controller
         $attributes = request()->validate([
             'title' => ['required', Rule::unique('posts', 'title')->ignore($post->id)],
             'photo' => 'image',
-            'sub_category_id' => 'required'
+            'sub_category_id' => 'required',
+            'rotate' => ''
         ]);
 
         $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['title']));
@@ -72,7 +73,15 @@ class AdminController extends Controller
             $attributes['photo'] = $this->toWebp($attributes);
         }
 
-        
+        if (isset($attributes['rotate'])) {
+            if (!isset($attributes['photo'])) {
+                $photo = $post->photo; 
+            } else {
+                $photo = $attributes['photo'];
+            }
+            $this->rotate(public_path('/photos/').$photo, $attributes['rotate']);
+        }
+        unset($attributes['rotate']);
 
         $post->update($attributes);
 
@@ -92,16 +101,22 @@ class AdminController extends Controller
 
     public function toWebp($attributes) 
     {
-        $imageResize = \Image::make($attributes['photo'])->encode('webp', 90);
-        if ($imageResize->width() > 1080){
-            $imageResize->resize(1080, null, function ($constraint) {
+        $image = \Image::make($attributes['photo'])->encode('webp', 90);
+        if ($image->width() > 1080){
+            $image->resize(1080, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
         }
+
         $destinationPath = public_path('/photos/');
         $path = $attributes['slug'].time().'.webp';
-        $imageResize->save($destinationPath.$path);
+        $image->save($destinationPath.$path);
 
         return $path;
+    }
+    public function rotate($photo, $rotate) 
+    {
+        $image = \Image::make($photo)->rotate($rotate);
+        $image->save($photo);
     }
 }

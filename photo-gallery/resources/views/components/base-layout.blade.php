@@ -26,6 +26,8 @@
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
             crossorigin="anonymous">
         </script>
+        <script src="/js/masonry.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
         <script src="/js/app.js"></script> 
         
         

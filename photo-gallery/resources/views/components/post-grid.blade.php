@@ -1,38 +1,11 @@
 @props(['posts'])
 
-<div class="grid gap-2 grid-cols-1 sm:grid-cols-6">
+<ul class="masonry-grid grid grid-cols-1 md:grid-cols-3">
     @if (isset($posts[0]))
+        <li class="grid-sizer"></li>
         @foreach($posts as $post)
-            <div class="image-container<?php
-                if ($posts->count() == 3) {
-                    if ($loop->first) {
-                        echo ' sm:col-span-6';
-                    } else {
-                        echo ' sm:col-span-3';
-                    }
-                } else if ($posts->count() == 2 || $posts->count() == 1) {
-                    echo ' sm:col-span-6';
-                } else if ($posts->count() % 3 == 2) {
-                    if ($loop->first || $loop->index == 1) {
-                        echo ' sm:col-span-3';
-                    } else {
-                        echo ' sm:col-span-2';
-                    }
-                } else if ($posts->count() % 3 == 1) {
-                    if ($loop->first) {
-                        echo ' sm:col-span-6';
-                    } else {
-                        echo ' sm:col-span-2';
-                    }
-                } else {
-                    echo ' sm:col-span-2';
-                } ?>">
-                <img src="<?php 
-                if (str_contains($post->photo, 'https://picsum.photos')) {
-                    echo $post->photo;
-                } else {
-                    echo '/photos/'.$post->photo; 
-                } ?>" alt="{{$post->title}}" class="" id="{{$loop->index}}"/>
+            <li class="masonry-grid-item col-span-1" id="masonry-grid-item-{{$loop->index}}">
+                <img data-src="{{'/photos/'.$post->photo}}" src="/img/placeholder.png" alt="{{$post->title}}" class="lazyload" id="{{$loop->index}}"/>
 
                 <div class="title-overlay">
                     <i class="fa-solid fa-plus top-right"></i>
@@ -41,21 +14,16 @@
                     </div>
                     
                 </div>
-            </div>
+            </li>
             
         @endforeach
-    </div>
+</ul>
 
     <div id="slide-overlay">
         <div class="slides">
             @foreach ($posts as $post)
                 <div id="img-{{$loop->index}}" class="flex flex-col justify-center slide-container">
-                    <img src="<?php 
-                if (str_contains($post->photo, 'https://picsum.photos')) {
-                    echo $post->photo;
-                } else {
-                    echo '/photos/'.$post->photo;
-                } ?>" alt="{{$post->title}}"/>
+                    <img src="{{'/photos/'.$post->photo}}" alt="{{$post->title}}"/>
                     <p class="title-text text-center text-white pt-4 font-thin">{{ucwords($post->title)}}</p>
                 </div>
                 

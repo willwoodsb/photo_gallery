@@ -9,7 +9,8 @@
                 @csrf
                 @method('PATCH')
                 <x-form.input name="title" :value="old('title', $post->title)"/>
-                <x-form.input type="file" name="Replace Photo" required=""/>
+                <x-form.input type="file" name="photo" required=""/>
+                <x-form.input name="rotate" required=""/>
                 <img class="mb-4" src="<?php 
                     if (str_contains($post->photo, 'https://picsum.photos')) {
                         echo $post->photo;
