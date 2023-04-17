@@ -1,10 +1,16 @@
 <x-base-layout title="Add Photos | Admin">
+    <div class="loading-overlay">
+        <div class="loading-overlay-inner">
+            <p>x out of something<p>
+        </div>
+    </div>
     <x-admin.layout title="Add Photos">
         <x-layout-card class="w-full">
             <form class="flex flex-col" 
                 action="/admin/photos/add" 
                 method="POST" 
                 enctype="multipart/form-data"
+                id="submit-photos"
             >
                 @csrf
                 <x-form.input type="file" name="photos[]" label="Photos" multiple="multiple"/>

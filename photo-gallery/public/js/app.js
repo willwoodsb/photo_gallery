@@ -68,6 +68,10 @@ $('.masonry-grid-item').on('click', function (e) {
     
 })
 
+$('#submit-photos').on('submit', function() {
+    $('.loading-overlay').show();
+})
+
 let lastScrollTop = 0;
 let stuck = false;
 
