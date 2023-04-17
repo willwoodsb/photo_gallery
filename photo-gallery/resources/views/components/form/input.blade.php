@@ -1,8 +1,8 @@
-@props(['name', 'type' => 'text', 'required' => 'required'])
+@props(['name', 'type' => 'text', 'required' => 'required', 'multiple' => '', 'label' => null])
 
 <div class="mb-4 flex flex-col">
     <label class="uppercase font-semibold text-xs mb-3"
-        for="{{ $name }}">{{ $name }}</label>
+        for="{{ $name }}">{{ isset($label) ? $label : $name }}</label>
 
     <input class="mb-1 border px-3 py-2 text-sm"
         type="{{ $type }}"
@@ -10,6 +10,7 @@
         id="{{ $name }}"
         {{ $attributes(['value' => old($name)]) }}
         {{$required}}
+        {{$multiple}}
     >
 
     @error($name)

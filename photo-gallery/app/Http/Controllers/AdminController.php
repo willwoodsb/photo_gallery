@@ -29,22 +29,22 @@ class AdminController extends Controller
     public function store()
     {
 
-        $attributes = request()->validate([
-            'title' => [Rule::unique('posts', 'title')],
-            'photo' => 'required|image',
+        request()->validate([
+            'photos' => 'required',
+            'photos.*' => 'image',
             'sub_category_id' => 'required'
         ]);
 
-        if (!isset($attributes['title'])) {
-            $attributes['title'] = strtok($attributes['photo']->getClientOriginalName(), '.');
+        foreach (request()->file('photos') as $photo) {
+            $post = [];
+            $post['title'] = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+            $post['slug'] = str_replace(' ', '-', strtolower($post['title']));
+            $post['photo'] = $photo;
+            $post['photo'] = $this->toWebp($post);
+            $post['sub_category_id'] = request('sub_category_id');
+            Post::create($post);
         }
-
-        $attributes['slug'] = str_replace(' ', '-', strtolower($attributes['title']));
-
-        $attributes['photo'] = $this->toWebp($attributes);
         
-
-        Post::create($attributes);
 
         return redirect('/admin');
     }

@@ -1,4 +1,4 @@
-<x-base-layout title="Add Photo | Admin">
+<x-base-layout title="Add Photos | Admin">
     <x-admin.layout title="Add Photos">
         <x-layout-card class="w-full">
             <form class="flex flex-col" 
@@ -7,8 +7,7 @@
                 enctype="multipart/form-data"
             >
                 @csrf
-                <x-form.input name="title" required=""/>
-                <x-form.input type="file" name="photo"/>
+                <x-form.input type="file" name="photos[]" label="Photos" multiple="multiple"/>
 
                 <label class="uppercase font-semibold text-xs mb-3"
                     for="sub_category_id">Category</label>
