@@ -38,7 +38,7 @@ class AdminController extends Controller
         foreach (request()->file('photos') as $photo) {
             $post = [];
             $post['title'] = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
-            $post['slug'] = str_replace(' ', '-', strtolower($post['title']));
+            $post['slug'] = str_replace('#', 'no.', str_replace(' ', '-', strtolower($post['title'])));
             $post['photo'] = $photo;
             $post['photo'] = $this->toWebp($post);
             $post['sub_category_id'] = request('sub_category_id');
