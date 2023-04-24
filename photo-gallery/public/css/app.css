@@ -67,7 +67,8 @@ body {
     height: 100%;
     width: 100%; }
   .featured img {
-    object-fit: cover; }
+    object-fit: cover;
+    object-position: bottom; }
   .featured .overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.8)); }
   .featured .cat-link {

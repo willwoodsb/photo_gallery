@@ -107,6 +107,7 @@ body {
     }
     img {
         object-fit: cover;
+        object-position: bottom;
     }
     .overlay {
         background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0) 20%, rgba(0,0,0,0.8));
