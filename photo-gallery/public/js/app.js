@@ -1,5 +1,8 @@
 let currentSlide = 0;
 let photoCount;
+let aboutMe = false;
+const home = $('.featured').length;
+let english = true;
 $(document).ready(function(){
 
 
@@ -30,6 +33,10 @@ $(document).ready(function(){
     $('.masonry-grid img').on('load', function(e) {
         $('.masonry-grid').masonry();
     })
+    if (home) {
+        scrollContentShow(aboutMe, 0, $(this).scrollTop());
+    }
+    
 });
     
 
@@ -65,7 +72,6 @@ $('.masonry-grid-item').on('click', function (e) {
     $(`#img-${currentSlide}`).show().addClass('slide-container-active');
 
     $('#slide-overlay').css('visibility', 'visible');
-    
 })
 
 $('#submit-photos').on('submit', function() {
@@ -78,6 +84,13 @@ let stuck = false;
 $(window).scroll(function(){
     
     let nowScrollTop = $(this).scrollTop();
+    if (home) {
+        if (aboutMe == false) {
+            scrollContentShow(aboutMe, 400, nowScrollTop);
+        }
+    }
+    
+    
     if (nowScrollTop < 200) {
         if (stuck) {
            stuck = !stuck;
@@ -128,6 +141,22 @@ $('.arrow-left').on('click', function() {
     changeSlide(currentSlide);
 })
 
+$('.switch').change(function() {
+    if (english) {
+        $('.english').fadeOut(100);
+        setTimeout(function() {
+            $('.french').fadeIn(100);
+        }, 100)
+        english = false;
+    } else {
+        $('.french').fadeOut(100);
+        setTimeout(function() {
+            $('.english').fadeIn(100);
+        }, 100)
+        english = true;
+    }
+});
+
 $(".delete").submit(function(e) {
     if ($(e.target).hasClass('delete-subCat')) {
         $message = 'Are you sure you want to delete this sub category and its associated photos?';
@@ -143,7 +172,6 @@ $(".delete").submit(function(e) {
 
 $(window).on('resize', function(){
     featuredHeight();
-    // verticalCenterItem();
 })
 
 open = false;
@@ -200,4 +228,13 @@ function getTarget(e) {
 
 function rotate($target, amount) {
     $target.css('rotate', `${amount}deg`)
+}
+
+function scrollContentShow(state, delay, scrollPos) {
+    if (scrollPos > ($('.scroll-content').offset().top - $(window).height())) {
+        setTimeout(function() {
+            $('.scroll-content__inner').fadeIn(600);
+            state = true;
+        }, delay)
+    }
 }

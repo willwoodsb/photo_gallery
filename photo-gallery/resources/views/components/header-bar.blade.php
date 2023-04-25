@@ -4,7 +4,7 @@
         <a href="/"><img src="/img/marko_shapiro_logo.png" class="w-28" alt="Marko Shapiro Logo"></a>
     </div>
     <p class="my-auto ml-auto hidden md:flex md:flex-row ">
-        <a href="/contact" class="hover:underline">AboutMe</a> /
+        <a href="/#about-me" class="hover:underline">AboutMe</a> /
         <a href="/contact" class="hover:underline">Showcase&Clients</a> /
         <a href="/contact" class="hover:underline">Contact</a>
     </p>
