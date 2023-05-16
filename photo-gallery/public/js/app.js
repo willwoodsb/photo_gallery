@@ -114,6 +114,19 @@ $('.sticky').on('click', function() {
     }, 500);
 })
 
+$('.scroll').on('click', function(event) {
+
+    let target = $(this.getAttribute('href'));
+    if (target.length) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+            scrollTop: target.offset().top
+        }, 500);
+    }
+
+    
+});
+
 $('#slide-overlay').on('click', function (e) {
     if (e.target.id == 'slide-overlay') {
         $('#slide-overlay').css('visibility', 'collapse');

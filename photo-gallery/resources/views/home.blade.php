@@ -5,7 +5,7 @@
     <x-side-menu :categories="$categories" />
     <header class="border-bottom">
         <div class="width">
-            <x-header-bar />
+            <x-header-bar internal="true" />
         </div>
         
         <nav class="flex flex-row justify-center mx-auto pt-4 width lg-menu">
@@ -52,11 +52,11 @@
                         
                     </div>
                 @endforeach
-                <div class="arrow-container">
+                <a href="#about-me" class="arrow-container scroll">
                     <div class="chevron"></div>
                     <div class="chevron"></div>
                     <div class="chevron"></div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="col-span-1">
-                    <video controls>
+                    <video poster="{{ asset('img/video_placeholder.png') }}" controls>
                         <source src="{{ asset('video/Marko-Shapiro-Verbier-TV_interview-in-French.mp4') }}" type="video/mp4">
                         Your browser does not support the video feature
                     </video>
@@ -102,6 +102,12 @@
             </div>
         </div>
         
+    </section>
+    <section class="width" id="showcase">
+        <h2>Clients and Showcase</h2>
+    </section>
+    <section class="width" id="contact">
+        <h2>Contact</h2>
     </section>
 
 </x-base-layout>
