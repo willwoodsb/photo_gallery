@@ -4,11 +4,13 @@
     <x-scroll-top />
     <x-side-menu :categories="$categories" />
     <header class="border-bottom">
-        <x-header-bar />
+        <div class="width">
+            <x-header-bar />
+        </div>
+        
         <nav class="flex flex-row justify-center mx-auto pt-4 width lg-menu">
             @foreach($categories as $cat)
-                <div class="nav-item nav-item-home text-center text-midnight px-1 
-                {{isset($category->id) ? ($cat->id == $category->id ? 'active' : '') : ''}}">
+                <div class="nav-item nav-item-home text-center text-midnight px-1">
                 
                     <a href="/category/{{ $cat->slug }}" class="flex flex-col justify-center h-16 py-2 nav-link" style="width: full;">
 
@@ -34,7 +36,7 @@
 
     <section class="">
         <div class="">
-            <div class="featured">
+            <div class="featured bg-black">
                 @foreach ($posts as $post)
                     @php
                         $featured_cat = $post->category;
@@ -50,6 +52,11 @@
                         
                     </div>
                 @endforeach
+                <div class="arrow-container">
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                </div>
             </div>
         </div>
     </section>

@@ -1,4 +1,4 @@
-<div class="width flex flex-row text-lg tracking-widest pt-4">
+<div class="flex flex-row text-lg tracking-widest pt-4">
     <div class="menu flex flex-row">
         <div class="h-px w-0 bg-black my-auto logo-line"></div>
         <a href="/"><img src="/img/marko_shapiro_logo.png" class="w-28" alt="Marko Shapiro Logo"></a>

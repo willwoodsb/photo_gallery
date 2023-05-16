@@ -1,12 +1,11 @@
 @props(['category', 'categories'])
 
 
-<header class="bg-gray-100">
+<header class="bg-gray-100 width">
     <x-header-bar />
-    <nav class="flex flex-row justify-center mx-auto pt-4 width lg-menu">
+    <nav class="flex flex-row justify-center mx-auto pt-4 border-bottom lg-menu">
         @foreach($categories as $cat)
-            <div class="nav-item text-center text-midnight px-1 
-            {{isset($category->id) ? ($cat->id == $category->id ? 'active' : '') : ''}}">
+            <div class="nav-item nav-item-home text-center text-midnight px-1">
             
                 <a href="/category/{{ $cat->slug }}" class="flex flex-col justify-center h-16 py-2 nav-link" style="width: full;">
 

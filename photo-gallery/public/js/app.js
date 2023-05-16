@@ -86,7 +86,7 @@ $(window).scroll(function(){
     let nowScrollTop = $(this).scrollTop();
     if (home) {
         if (aboutMe == false) {
-            scrollContentShow(aboutMe, 400, nowScrollTop);
+            scrollContentShow(aboutMe, 250, nowScrollTop);
         }
     }
     
@@ -143,16 +143,16 @@ $('.arrow-left').on('click', function() {
 
 $('.switch').change(function() {
     if (english) {
-        $('.english').fadeOut(100);
+        $('.english').fadeOut(200);
         setTimeout(function() {
-            $('.french').fadeIn(100);
-        }, 100)
+            $('.french').fadeIn(200);
+        }, 200)
         english = false;
     } else {
-        $('.french').fadeOut(100);
+        $('.french').fadeOut(200);
         setTimeout(function() {
-            $('.english').fadeIn(100);
-        }, 100)
+            $('.english').fadeIn(200);
+        }, 200)
         english = true;
     }
 });
@@ -233,7 +233,7 @@ function rotate($target, amount) {
 function scrollContentShow(state, delay, scrollPos) {
     if (scrollPos > ($('.scroll-content').offset().top - $(window).height())) {
         setTimeout(function() {
-            $('.scroll-content__inner').fadeIn(600);
+            $('.scroll-content__inner').fadeIn(700);
             state = true;
         }, delay)
     }
