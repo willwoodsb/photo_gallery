@@ -104,7 +104,7 @@
         
     </section>
     <section class="width" id="showcase">
-        <h2>Clients and Showcase</h2>
+        
     </section>
     <section class="width" id="contact">
         <h2>Contact</h2>
