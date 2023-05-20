@@ -35,36 +35,36 @@
     </header>
 
     <section class="">
-        <div class="">
-            <div class="featured bg-black">
-                @foreach ($posts as $post)
-                    @php
-                        $featured_cat = $post->category;
-                    @endphp
-                    <div class="featured-item" id="{{$featured_cat->id - 1}}">
-                        <img src="{{ asset('photos/'.$post->photo) }}" alt="{{$post->title}}"/>
-                        <div class="overlay"></div>
-                        <div class="cat-link flex flex-col">
-                            <a class="uppercase font-bold" href="/category/{{$featured_cat->slug}}"><h1>{{$featured_cat->name}}</h1></a>
+        <div class="featured bg-black">
+            @foreach ($posts as $post)
+                @php
+                    $featured_cat = $post->category;
+                @endphp
+                <div class="featured-item" id="{{$featured_cat->id - 1}}">
+                    <img src="{{ asset('photos/'.$post->photo) }}" alt="{{$post->title}}" 
+                        style="object-position: {{$coordinates[$loop->index][0]}}% {{$coordinates[$loop->index][1]}}%;"
+                    />
+                    <div class="overlay"></div>
+                    <div class="cat-link flex flex-col">
+                        <a class="uppercase font-bold" href="/category/{{$featured_cat->slug}}"><h1>{{$featured_cat->name}}</h1></a>
 
-                            <div class="h-px bg-white my-auto cat-line"></div>
-                        </div>
-                        
+                        <div class="h-px bg-white my-auto cat-line"></div>
                     </div>
-                @endforeach
-                <a href="#about-me" class="arrow-container scroll">
-                    <div class="chevron"></div>
-                    <div class="chevron"></div>
-                    <div class="chevron"></div>
-                </a>
-            </div>
+                    
+                </div>
+            @endforeach
+            <a href="#about-me" class="arrow-container scroll">
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+                <div class="chevron"></div>
+            </a>
         </div>
     </section>
-    <section class="scroll-content width" id="about-me">
-        <div class="scroll-content__inner">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <section class="scroll-content width width-limited " id="about-me">
+        <div class="scroll-content__inner py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div class="col-span-1">
-                    <img src="{{ asset('img/marko_shapiro_portrait.webp') }}" alt="Marko Shapiro Portrait"/>
+                    <img src="{{ asset('img/marko_shapiro_portrait.webp') }}" alt="Marko Shapiro Portrait" class="mx-auto"/>
                 </div>
                 <div class="col-span-1 row-span-2">
                     <div class="flex flex-row justify-between">
@@ -93,7 +93,7 @@
                         <p>Ses archives photos retracent 40 ans de carrière et comprennent 4 saisons de sports de montagne, des paysages, des macrophotographies de nature morte et divers objets qui ont passé par son objectif.</p>
                     </div>
                 </div>
-                <div class="col-span-1">
+                <div class="col-span-1 xl:col-span-2">
                     <video poster="{{ asset('img/video_placeholder.png') }}" controls>
                         <source src="{{ asset('video/Marko-Shapiro-Verbier-TV_interview-in-French.mp4') }}" type="video/mp4">
                         Your browser does not support the video feature
@@ -106,8 +106,66 @@
     <section class="width" id="showcase">
         
     </section>
-    <section class="width" id="contact">
-        <h2>Contact</h2>
+    <section class="scroll-content width width-limited mb-8" id="contact">
+        <div class="scroll-content__inner">
+            <div class="w-full grid grid-cols-2 gap-10 pt-10 border-t" >
+                <div class="col-span-2 lg:col-span-1">
+                    <h2 class="uppercase mb-2 font-bold text-xl mb-3">Get In Touch</h2>
+                    <p class="mb-6">Don't hesitate to send me an email via this form or at mark.shapiro@verbier.ch for any enquiries.</p>
+                    <img src="{{ asset('photos/my-atalier-251684170383.webp') }}" alt="My Atelier"/>
+                </div>
+                <form class="col-span-2 lg:col-span-1"
+                    action="/contact" 
+                    method="POST"
+                    name="contactForm"
+                    id="contact-form"
+                    onsubmit="return submitForm(document.contactForm)"
+                >
+                    @if (session('success'))
+                        <p class="text-white px-6 py-2 rounded-xl mb-4 success bg-green-500">{{session('success')}}</p>
+                    @endif
+                    @csrf
+                    <div class="grid grid-cols-2 gap-x-4">
+                        <div class="col-span-2 sm:col-span-1">
+                            <x-form.input name="fname" label="first name" required=""/>
+                            <p class="error text-red-500 text-xs mt-1">Please enter your first name</p>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <x-form.input name="lname" label="last name" required=""/>
+                            <p class="error text-red-500 text-xs mt-1">Please enter your last name</p>
+                        </div>
+                        <div class="col-span-2">
+                            <x-form.input name="email" type="email" required=""/>
+                            <p class="error text-red-500 text-xs mt-1">Please enter your email</p>
+                        </div>
+                        <div class="col-span-2">
+                            <x-form.input name="subject" required=""/>
+                            <p class="error text-red-500 text-xs mt-1">Please enter a subject</p>
+                        </div>
+                        <div class="col-span-2">
+                            <label class="uppercase font-semibold text-xs mb-3"
+                                for="message">Message</label>
+
+                            <textarea class="mb-1 border px-3 py-2 text-sm w-full h-32"
+                                name="message"
+                                id="message"
+                            ></textarea>
+                            <p class="error text-red-500 text-xs mt-1 mb-2">Please enter a message</p>
+                            @error('message')
+                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-span-2 w-full">
+                            <x-form.button>Submit</x-form.button>
+                        </div>
+                        
+                    </div>    
+                </form>
+                
+            </div>
+        
+        </div>
+        
     </section>
 
 </x-base-layout>

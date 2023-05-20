@@ -12,7 +12,7 @@
         {{$required}}
         {{$multiple}}
     >
-
+    <p class="error text-red-500 text-xs mt-1">Please enter {{$name == 'subject' ? 'a' : 'your'}} {{ isset($label) ? $label : $name }}</p>
     @error($name)
         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
     @enderror

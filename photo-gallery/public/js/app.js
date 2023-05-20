@@ -36,6 +36,10 @@ $(document).ready(function(){
     if (home) {
         scrollContentShow(aboutMe, 0, $(this).scrollTop());
     }
+
+    setTimeout(function() {
+        $('.success').slideUp(500);
+    }, 5000)
     
 });
     
@@ -227,7 +231,7 @@ function changeSlide (currentSlide) {
 
 function featuredHeight() {
     let height = $(window).height() - $('header').height();
-    $('.featured').css('height', height-1);
+    $('.featured').css('height', height);
 }
 
 function getTarget(e) {
@@ -245,9 +249,12 @@ function rotate($target, amount) {
 
 function scrollContentShow(state, delay, scrollPos) {
     if (scrollPos > ($('.scroll-content').offset().top - $(window).height())) {
+        $()
         setTimeout(function() {
             $('.scroll-content__inner').fadeIn(700);
             state = true;
         }, delay)
     }
 }
+
+

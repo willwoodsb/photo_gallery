@@ -23,7 +23,7 @@ class CategoryController extends Controller
 
 
         return view('category', [
-            'posts' => Post::orderBy('title', 'asc')->whereIn('sub_category_id', $id_array)->paginate(100000),
+            'posts' => Post::orderBy('title', 'asc')->whereIn('sub_category_id', $id_array)->paginate(100),
             'categories' => Category::all(),
             'category' => $category
         ]);

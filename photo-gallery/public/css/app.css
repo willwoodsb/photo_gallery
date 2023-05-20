@@ -1,11 +1,24 @@
 .width {
   padding-left: 15px;
   padding-right: 15px;
-  width: 100%; }
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
   @media screen and (min-width: 640px) {
-    .width {
-      padding-left: 30px;
-      padding-right: 30px; } }
+    .width-limited {
+      max-width: 600px; } }
+  @media screen and (min-width: 768px) {
+    .width-limited {
+      max-width: 700px; } }
+  @media screen and (min-width: 1024px) {
+    .width-limited {
+      max-width: 980px; } }
+  @media screen and (min-width: 1280px) {
+    .width-limited {
+      max-width: 1200px; } }
+  @media screen and (min-width: 1536px) {
+    .width-limited {
+      max-width: 1300px; } }
 
 .nav-item {
   position: relative;
@@ -71,19 +84,18 @@ body {
     height: 100%;
     width: 100%; }
   .featured img {
-    object-fit: cover;
-    object-position: bottom; }
+    object-fit: cover; }
   .featured .overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.8)); }
   .featured .cat-link {
     position: absolute;
     top: 70%;
-    left: 60%;
+    right: 5%;
     color: white;
     z-index: 2;
     font-size: 25px;
     justify-content: flex-end;
-    transform: translate(-50%, -50%); }
+    transform: translate(0, -50%); }
     .featured .cat-link .cat-line {
       width: 0;
       margin-top: -4px;
@@ -91,7 +103,7 @@ body {
     @media screen and (min-width: 768px) {
       .featured .cat-link {
         font-size: 40px;
-        left: 65%; }
+        right: 10%; }
         .featured .cat-link .cat-line {
           margin-top: -8px; } }
     .featured .cat-link a {
@@ -189,7 +201,7 @@ th {
 
 .lg-menu {
   display: none; }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     .lg-menu {
       display: flex; } }
 
@@ -240,17 +252,14 @@ th {
     z-index: 10000001; }
 
 .scroll-content {
-  min-height: 100vh;
-  padding-top: 65px;
-  padding-bottom: 20px;
-  margin-top: 15px; }
+  min-height: 20vh; }
   .scroll-content__inner {
     display: none; }
-    .scroll-content__inner p {
-      margin-bottom: 20px; }
 
 #about-me video {
   width: 100%; }
+#about-me p:not(:last-of-type) {
+  margin-bottom: 20px; }
 
 /* The switch - the box around the slider */
 .switch {
@@ -366,5 +375,7 @@ input:checked + .slider:before {
   100% {
     opacity: 0;
     transform: translateY(3.2rem) scale(0.5); } }
+.error {
+  display: none; }
 
 /*# sourceMappingURL=app.css.map */

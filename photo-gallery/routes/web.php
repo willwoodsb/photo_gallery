@@ -7,7 +7,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\FeaturedController;
-use App\Http\Controllers\NotFoundController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,4 +43,6 @@ Route::post('admin/logout', [SessionsController::class, 'destroy'])->middleware(
 
 Route::get('admin/login', [SessionsController::class, 'create'])->middleware('guests');
 Route::post('admin/login', [SessionsController::class, 'store'])->middleware('guests');
+
+Route::post('/contact', [ContactController::class, 'store']);
 

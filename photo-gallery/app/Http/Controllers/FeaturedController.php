@@ -12,13 +12,16 @@ class FeaturedController extends Controller
     public function index()
     {
         $ids = [];
-        foreach (Featured::all('post_id')->toArray() as $post) {
+        $coords = [];
+        foreach (Featured::all()->toArray() as $post) {
             $ids[] = $post['post_id'];
+            $coords[] = [$post['pos-x'], $post['pos-y']];
         }
         $posts = Post::whereIn('id', $ids)->get();
         return view('home', [
             'posts' => $posts,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'coordinates' => $coords
         ]);
     }
 }
