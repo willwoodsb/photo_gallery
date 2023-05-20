@@ -26,9 +26,8 @@ function validateEmail(userInput) {
     };
 }
     
-input.on('change', function (event) {
+input.on('keyup', function (event) {
     $(`#${event.target.id} + .error`).hide();
-    valid = true;
 });
 
 function submitForm(userInput){
