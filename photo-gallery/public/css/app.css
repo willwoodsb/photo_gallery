@@ -85,8 +85,6 @@ body {
     width: 100%; }
   .featured img {
     object-fit: cover; }
-  .featured .overlay {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.8)); }
   .featured .cat-link {
     position: absolute;
     top: 70%;
@@ -112,6 +110,9 @@ body {
       letter-spacing: 0.3em; }
     .featured .cat-link:hover .cat-line {
       width: 100% !important; }
+
+.overlay {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.8)); }
 
 .featured-item {
   display: none; }

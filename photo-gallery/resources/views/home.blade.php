@@ -3,7 +3,7 @@
 <x-base-layout title="Home">
     <x-scroll-top />
     <x-side-menu :categories="$categories" />
-    <header class="border-bottom">
+    <header class="border-bottom" id="header">
         <div class="width">
             <x-header-bar internal="true" />
         </div>
@@ -111,7 +111,7 @@
             <div class="w-full grid grid-cols-2 gap-10 pt-10 border-t" >
                 <div class="col-span-2 lg:col-span-1">
                     <h2 class="uppercase mb-2 font-bold text-xl mb-3">Get In Touch</h2>
-                    <p class="mb-6">Don't hesitate to send me an email via this form or at mark.shapiro@verbier.ch for any enquiries.</p>
+                    <p class="mb-6">Don't hesitate to send me an email via this form or at <a href="mailto:mark.shapiro@verbier.ch" class="text-blue-500 hover:underline">mark.shapiro@verbier.ch</a> for any enquiries.</p>
                     <img src="{{ asset('photos/my-atalier-251684170383.webp') }}" alt="My Atelier"/>
                 </div>
                 <form class="col-span-2 lg:col-span-1"
@@ -146,7 +146,7 @@
                             <label class="uppercase font-semibold text-xs mb-3"
                                 for="message">Message</label>
 
-                            <textarea class="mb-1 border px-3 py-2 text-sm w-full h-32"
+                            <textarea class="border px-3 py-2 text-sm w-full h-32"
                                 name="message"
                                 id="message"
                             ></textarea>
@@ -155,7 +155,7 @@
                                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="col-span-2 w-full">
+                        <div class="col-span-2 w-full mt-1">
                             <x-form.button>Submit</x-form.button>
                         </div>
                         
@@ -167,5 +167,12 @@
         </div>
         
     </section>
+    <div class="w-full h-96 overflow-hidden mt-32 scroll-content shadow-lg relative">
+        <div class="overlay h-full w-full absolute z-10"></div>
+        <div class="absolute z-20 inset-y-1/2 inset-x-1/2">
+            <a href="#header" class="whitespace-nowrap uppercase text-white font-semibold scroll hover:underline">Back to Top</span>
+        </div>
+        <img src="{{ asset('photos/mt.-everest-tibet041681729942.webp') }}" alt="Everest Camp" class="object-cover object-bottom w-full scroll-content__inner min-h-full"/>
+    </div>
 
 </x-base-layout>

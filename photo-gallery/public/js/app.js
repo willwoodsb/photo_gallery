@@ -2,6 +2,7 @@ let currentSlide = 0;
 let photoCount;
 let aboutMe = false;
 const home = $('.featured').length;
+const show = $('.showcase').length;
 let english = true;
 $(document).ready(function(){
 
@@ -35,6 +36,12 @@ $(document).ready(function(){
     })
     if (home) {
         scrollContentShow(aboutMe, 0, $(this).scrollTop());
+    }
+
+    if (showcase) {
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel();
+          });
     }
 
     setTimeout(function() {

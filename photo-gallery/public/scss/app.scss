@@ -112,9 +112,6 @@ body {
     img {
         object-fit: cover;
     }
-    .overlay {
-        background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0) 20%, rgba(0,0,0,0.8));
-    }
     .cat-link {
         position: absolute;
         top: 70%;
@@ -148,6 +145,10 @@ body {
             }
         }
     }
+}
+
+.overlay {
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0) 20%, rgba(0,0,0,0.8));
 }
 
 .featured-item {

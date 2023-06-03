@@ -9,9 +9,10 @@
         <title>{{$title}} | Marko Shapiro Photos</title>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/cbfcb73618.js" crossorigin="anonymous"></script>
+        <link href="/css/owl.carousel.min.css" rel="stylesheet">
         <link href="/css/app.css" rel="stylesheet">
     </head>
         
@@ -27,6 +28,7 @@
             crossorigin="anonymous">
         </script>
         <script src="/js/masonry.min.js"></script> 
+        <script src="/js/owl.carousel.min.js"></script> 
         <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
         <script src="/js/app.js"></script> 
         <script src="/js/form-validation.js"></script>

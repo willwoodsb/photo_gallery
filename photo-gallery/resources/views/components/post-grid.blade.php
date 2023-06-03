@@ -26,7 +26,6 @@
                     <img src="{{'/photos/'.$post->photo}}" alt="{{$post->title}}"/>
                     <p class="title-text text-center text-white pt-4 font-thin">{{ucwords($post->title)}}</p>
                 </div>
-                
             @endforeach
         </div>
 

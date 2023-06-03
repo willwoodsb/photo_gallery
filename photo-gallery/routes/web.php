@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\FeaturedController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ShowcaseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,4 +46,9 @@ Route::get('admin/login', [SessionsController::class, 'create'])->middleware('gu
 Route::post('admin/login', [SessionsController::class, 'store'])->middleware('guests');
 
 Route::post('/contact', [ContactController::class, 'store']);
+
+Route::get('/client-showcase', [ShowcaseController::class, 'index']);
+Route::get('/admin/showcase', [ShowcaseController::class, 'admin']);
+Route::get('/admin/showcase/add', [ShowcaseController::class, 'create']);
+Route::post('/admin/showcase/add', [ShowcaseController::class, 'store']);
 
