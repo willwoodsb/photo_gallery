@@ -11,12 +11,7 @@
                 <x-form.input name="title" :value="old('title', $post->title)"/>
                 <x-form.input type="file" name="photo" required=""/>
                 <x-form.input name="rotate" required=""/>
-                <img class="mb-4" src="<?php 
-                    if (str_contains($post->photo, 'https://picsum.photos')) {
-                        echo $post->photo;
-                    } else {
-                        echo '/photos/'.$post->photo; 
-                    } ?>" alt="{{$post->title}}"/>
+                <img class="mb-4" src="{{'/post/'.$post->photo}}" alt="{{$post->title}}"/>
 
                 <label class="uppercase font-semibold text-xs mb-3"
                     for="sub_category_id">Category</label>

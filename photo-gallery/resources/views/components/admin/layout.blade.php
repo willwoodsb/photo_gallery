@@ -17,6 +17,8 @@
             <x-admin.dashboard-link href="/admin/photos/add" text="Add Photos" />
             <x-admin.dashboard-link href="/admin/subcategories" text="Edit Sub-Categories" />
             <x-admin.dashboard-link href="/admin/subcategories/add" text="Create Sub-Category" />
+            <x-admin.dashboard-link href="/admin/showcase" text="Edit Showcase Photos" />
+            <x-admin.dashboard-link href="/admin/showcase/add" text="Add Showcase Photos" />
         </div>       
         <div class="form-element w-full md:ml-4">
             

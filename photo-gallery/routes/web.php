@@ -48,7 +48,10 @@ Route::post('admin/login', [SessionsController::class, 'store'])->middleware('gu
 Route::post('/contact', [ContactController::class, 'store']);
 
 Route::get('/client-showcase', [ShowcaseController::class, 'index']);
-Route::get('/admin/showcase', [ShowcaseController::class, 'admin']);
-Route::get('/admin/showcase/add', [ShowcaseController::class, 'create']);
-Route::post('/admin/showcase/add', [ShowcaseController::class, 'store']);
+Route::get('/admin/showcase', [ShowcaseController::class, 'admin'])->middleware('admin');
+Route::get('/admin/showcase/add', [ShowcaseController::class, 'create'])->middleware('admin');
+Route::post('/admin/showcase/add', [ShowcaseController::class, 'store'])->middleware('admin');
+Route::get('/admin/showcase/edit/{showcase:slug}', [ShowcaseController::class, 'edit'])->middleware('admin');
+Route::patch('/admin/showcase/edit/{showcase:slug}', [ShowcaseController::class, 'update'])->middleware('admin');
+Route::delete('admin/showcase/delete/{showcase:slug}', [ShowcaseController::class, 'destroy'])->middleware('admin');
 

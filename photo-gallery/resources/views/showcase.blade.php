@@ -5,7 +5,7 @@
         <section id="showcase">
             <div class="owl-carousel">
                 @foreach($showcases as $showcase)
-                    <img src="{{'/showcase/'.$showcase->photo}}" alt="{{$showcase->title}}" class="" id="{{$loop->index}}"/>
+                    <img src="{{'/showcase/'.$showcase->photo}}" alt="{{$showcase->title}}" class="h-96" id="{{$loop->index}}"/>
                 @endforeach
             </div>
         </section>
