@@ -7,7 +7,7 @@
     </div>
     <p class="my-auto ml-auto hidden lg:flex lg:flex-row ">
         <a href="{{$internal == true ? '' : '/'}}#about-me" class="hover:underline scroll">AboutMe</a> /
-        <a href="/client-showcase" class="hover:underline scroll">Showcase&Clients</a> /
+        <a href="/client-showcase" class="hover:underline scroll">Showcase & Clients</a> /
         <a href="{{$internal == true ? '' : '/'}}#contact" class="hover:underline scroll">Contact</a>
     </p>
     <button class="lg:hidden uppercase ml-auto flex flex-row my-auto menu open-menu">

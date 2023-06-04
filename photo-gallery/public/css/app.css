@@ -119,31 +119,64 @@ body {
   .featured-item-active {
     display: block; }
 
+#showcase .image-grid {
+  margin-left: -10px;
+  margin-right: -10px !important; }
+#showcase .title-overlay {
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  right: 10px; }
+#showcase .image-grid-item {
+  padding: 0 10px; }
+#showcase .owl-nav {
+  font-size: 75px;
+  width: 100vw;
+  transform: translate(50vw, 0); }
+#showcase .owl-prev, #showcase .owl-next {
+  transform: translate(-100%);
+  padding: 0 20px !important; }
+#showcase .owl-item {
+  border: none; }
+
+#clients {
+  background-position: center;
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-image: url("../photos/elements-window-frost-2211681742642.webp"), linear-gradient(to bottom, black, rgba(0, 0, 0, 0.7)); }
+
+.diagonal {
+  width: calc(100% + 30px);
+  background-image: linear-gradient(to top left, black 50%, rgba(243, 244, 246, var(--tw-bg-opacity)) 50%); }
+
+.image-grid .title-overlay {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6); }
+  .image-grid .title-overlay__inner {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%; }
+.image-grid-item {
+  cursor: pointer; }
+  .image-grid-item:hover .title-overlay {
+    display: block; }
+
 .masonry-grid {
   margin-left: -3px;
   margin-right: -3px; }
+  .masonry-grid .title-overlay {
+    left: 3px;
+    top: 3px;
+    bottom: 3px;
+    right: 3px; }
   .masonry-grid-item {
-    cursor: pointer;
     padding: 3px;
     width: 100%; }
     @media screen and (min-width: 768px) {
       .masonry-grid-item {
         width: 33.3333%; } }
-    .masonry-grid-item:hover .title-overlay {
-      display: block; }
-  .masonry-grid .title-overlay {
-    position: absolute;
-    left: 3px;
-    top: 3px;
-    bottom: 3px;
-    right: 3px;
-    display: none;
-    background-color: rgba(0, 0, 0, 0.6); }
-    .masonry-grid .title-overlay__inner {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      top: 50%;
-      left: 50%; }
   .masonry-grid img {
     width: 100%; }
 
@@ -180,7 +213,6 @@ body {
 
 .arrow {
   position: fixed;
-  cursor: pointer;
   top: 50%;
   transform: translate(0, -50%);
   width: 100%;
@@ -188,6 +220,8 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0 8%; }
+  .arrow i {
+    cursor: pointer; }
   .arrow i {
     font-size: 30px; }
     @media screen and (min-width: 768px) {

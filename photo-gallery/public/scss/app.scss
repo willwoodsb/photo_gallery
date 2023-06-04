@@ -157,33 +157,53 @@ body {
         display: block;
     }
 }
-
-.masonry-grid {
-    $gap: 3px;
-    margin-left: -$gap;
-    margin-right: -$gap;
-    &-item {
-        cursor: pointer;
-        padding: $gap;
-        width: 100%;
-        @media screen and (min-width: 768px) {
-            width: 33.3333%;
-        }
-        
-        &:hover {
-            .title-overlay {
-                display: block;
-            }
-            
-        }
+#showcase {
+    $gap: 10px;
+    .image-grid {
+        margin-left: -$gap;
+        margin-right: -$gap!important;
     }
+    
     .title-overlay {
-        position: absolute;
         left: $gap;
-        top: $gap;
-        bottom: $gap;
+        top: 0;
+        bottom: 0;
         right: $gap;
+    }
+    .image-grid-item {
+        padding: 0 $gap;
+    }
+    .owl-nav {
+        font-size: 75px;
+        width: 100vw;
+        transform: translate(50vw, 0);
+    }
+    .owl-prev, .owl-next {
+        transform: translate(-100%);
+        padding: 0 20px!important;
+    }
+    .owl-item {
+        border: none;
+    }
+}
+#clients {
+    background-position: center;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-image: url("../photos/elements-window-frost-2211681742642.webp"), linear-gradient(to bottom, black , rgba(0,0,0,0.7));
+}
+.diagonal {
+    width: calc(100% + 30px);
+    background-image: linear-gradient(
+      to top left,
+      black 50%,
+      rgba(243,244,246,var(--tw-bg-opacity)) 50%
+    );
+  }
+.image-grid {
+    .title-overlay {
         display: none;
+        position: absolute;
         background-color: rgba(0,0,0,0.6);
         &__inner {
             position: absolute;
@@ -191,6 +211,35 @@ body {
             top: 50%;
             left: 50%;
         }
+    }
+    &-item {
+        cursor: pointer;
+        &:hover {
+            .title-overlay {
+                display: block;
+            }
+            
+        }
+    }
+    
+}
+.masonry-grid {
+    $gap: 3px;
+    margin-left: -$gap;
+    margin-right: -$gap;
+    .title-overlay {
+        left: $gap;
+        top: $gap;
+        bottom: $gap;
+        right: $gap;
+    }
+    &-item {
+        padding: $gap;
+        width: 100%;
+        @media screen and (min-width: 768px) {
+            width: 33.3333%;
+        }
+        
     }
     img {
         width: 100%;
@@ -237,7 +286,10 @@ body {
 
 .arrow {
     position: fixed;
-    cursor: pointer;
+    i {
+        cursor: pointer;
+    }
+    
     top: 50%;
     transform: translate(0, -50%);
     width: 100%;

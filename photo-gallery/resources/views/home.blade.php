@@ -2,8 +2,9 @@
 
 <x-base-layout title="Home">
     <x-scroll-top />
-    <x-side-menu :categories="$categories" />
+    <x-side-menu :categories="$categories" :internal="true"/>
     <header class="border-bottom" id="header">
+        <h1 class="hidden">Home</h1>
         <div class="width">
             <x-header-bar internal="true" />
         </div>

@@ -1,4 +1,4 @@
-@props(['categories'])
+@props(['categories', 'internal' => null])
 
 <div class="side-menu bg-gray-100">
     <div class="flex flex-col px-4 pt-4">
@@ -28,7 +28,7 @@
             </div>
         @endforeach
         <div class="flex flex-row justify-between">
-            <a href="/" class="flex flex-col justify-center h-8 nav-link hover:underline mt-6">
+            <a href="{{$internal == true ? '' : '/'}}#about-me" class="flex flex-col justify-center h-8 nav-link hover:underline mt-6 scroll">
 
                 <div class="px-2 uppercase text-sm">
                     About Me
@@ -36,7 +36,7 @@
             </a>
         </div>
         <div class="flex flex-row justify-between">
-            <a href="/" class="flex flex-col justify-center h-8 nav-link hover:underline">
+            <a href="/client-showcase" class="flex flex-col justify-center h-8 nav-link hover:underline">
 
                 <div class="px-2 uppercase text-sm">
                     Showcase & Clients
@@ -44,7 +44,7 @@
             </a>
         </div>
         <div class="flex flex-row justify-between">
-            <a href="/" class="flex flex-col justify-center h-8 nav-link hover:underline">
+            <a href="{{$internal == true ? '' : '/'}}#contact" class="flex flex-col justify-center h-8 nav-link hover:underline scroll">
 
                 <div class="px-2 uppercase text-sm">
                     Contact

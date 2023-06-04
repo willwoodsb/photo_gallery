@@ -1,10 +1,10 @@
 @props(['posts'])
 
-<ul class="masonry-grid grid grid-cols-1 md:grid-cols-3">
+<ul class="masonry-grid image-grid grid grid-cols-1 md:grid-cols-3">
     @if (isset($posts[0]))
         <li class="grid-sizer"></li>
         @foreach($posts as $post)
-            <li class="masonry-grid-item col-span-1" id="masonry-grid-item-{{$loop->index}}">
+            <li class="masonry-grid-item image-grid-item col-span-1" id="masonry-grid-item-{{$loop->index}}">
                 <img data-src="{{'/photos/'.$post->photo}}" src="/img/placeholder.png" alt="{{$post->title}}" class="lazyload" id="{{$loop->index}}"/>
 
                 <div class="title-overlay">
