@@ -90,8 +90,9 @@ $('.image-grid-item').on('click', function (e) {
     $('#slide-overlay').css('visibility', 'visible');
 })
 
-$('#submit-photos').on('submit', function() {
-    $('.loading-overlay').show();
+$('#submit').on('submit', function() {
+    $('.submit-button').addClass('button-loading');
+    $('.submit-button').prop('disabled', true);
 })
 
 let lastScrollTop = 0;
@@ -142,6 +143,7 @@ $('.scroll').on('click', function(event) {
 
     
 });
+
 
 $('#slide-overlay').on('click', function (e) {
     console.log(e.target);

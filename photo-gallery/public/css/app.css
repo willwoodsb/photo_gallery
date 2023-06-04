@@ -1,3 +1,10 @@
+.button-loading {
+  border: gray !important;
+  color: gray;
+  cursor: auto; }
+  .button-loading:hover {
+    background-color: gray !important; }
+
 .width {
   padding-left: 15px;
   padding-right: 15px;
@@ -73,6 +80,10 @@
 body {
   min-height: 100vh;
   overflow-x: hidden; }
+
+.back-to-top {
+  left: 50vw;
+  transform: translate(-50%, 0); }
 
 .featured {
   width: 100vw;

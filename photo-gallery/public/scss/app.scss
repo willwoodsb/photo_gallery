@@ -5,6 +5,15 @@ $aspect-factor : 56.25%;
 $midnight : darken(#435060, 20%);
 $light-midnight : lighten(#435060, 40%);
 
+.button-loading {
+    border: gray!important;
+    color: gray;
+    cursor: auto;
+    &:hover {
+        background-color: gray!important;
+    }
+}
+
 .width {
     
     padding-left: 15px;
@@ -98,7 +107,10 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
-
+.back-to-top {
+    left: 50vw;
+    transform: translate(-50%, 0);
+}
 .featured {
     width: 100vw;
     height: 100vh;

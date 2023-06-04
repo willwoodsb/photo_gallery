@@ -4,6 +4,7 @@
             <form class="flex flex-col" 
                 action="/admin/subcategories/add" 
                 method="POST" 
+                id="submit"
             >
                 @csrf
                 <x-form.input name="name"/>

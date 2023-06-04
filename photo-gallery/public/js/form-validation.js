@@ -31,6 +31,9 @@ input.on('keyup', function (event) {
 });
 
 function submitForm(userInput){
+    $('.submit-button').addClass('button-loading');
+    $('.submit-button').prop('disabled', true);
+    console.log('yampikl');
     validateEmail(userInput.email);
     notempty(userInput.fname);
     notempty(userInput.lname);
@@ -44,6 +47,8 @@ function submitForm(userInput){
         return true;
         
     } else {
+        $('.submit-button').removeClass('button-loading');
+        $('.submit-button').prop('disabled', false);
         return false;
     }
 }

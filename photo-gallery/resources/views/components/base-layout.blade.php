@@ -14,6 +14,7 @@
         <script src="https://kit.fontawesome.com/cbfcb73618.js" crossorigin="anonymous"></script>
         <link href="/css/owl.carousel.min.css" rel="stylesheet">
         <link href="/css/app.css" rel="stylesheet">
+        <link rel="icon" href="img/my-M.png" type="image/x-icon">
     </head>
         
 

@@ -170,7 +170,7 @@
     </section>
     <div class="w-full h-96 overflow-hidden mt-32 scroll-content shadow-lg relative">
         <div class="overlay h-full w-full absolute z-10"></div>
-        <div class="absolute z-20 inset-y-1/2 inset-x-1/2">
+        <div class="absolute z-20 inset-y-1/2 back-to-top">
             <a href="#header" class="whitespace-nowrap uppercase text-white font-semibold scroll hover:underline">Back to Top</span>
         </div>
         <img src="{{ asset('photos/mt.-everest-tibet041681729942.webp') }}" alt="Everest Camp" class="object-cover object-bottom w-full scroll-content__inner min-h-full"/>

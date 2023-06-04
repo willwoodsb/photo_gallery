@@ -5,6 +5,7 @@
                 action="/admin/showcase/add" 
                 method="POST" 
                 enctype="multipart/form-data"
+                id="submit"
             >
                 @csrf
                 <x-form.input type="file" name="photos[]" label="Photos" multiple="multiple"/>
