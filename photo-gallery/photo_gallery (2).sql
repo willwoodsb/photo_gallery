@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 09:03 PM
+-- Generation Time: Jun 04, 2023 at 03:49 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,7 +44,7 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALU
 (2, 'Elements', 'elements', '2023-03-31 07:31:32', '2023-03-31 07:31:32'),
 (3, 'Sport', 'sport', '2023-03-31 07:31:32', '2023-03-31 07:31:32'),
 (4, 'Lifestyle', 'lifestyle', '2023-03-31 07:31:32', '2023-03-31 07:31:32'),
-(5, 'Clambin', 'clambin', '2023-03-31 07:31:32', '2023-03-31 07:31:32');
+(5, 'Team Clambin', 'team-clambin', '2023-03-31 07:31:32', '2023-03-31 07:31:32');
 
 -- --------------------------------------------------------
 
@@ -72,20 +72,21 @@ CREATE TABLE `featureds` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `pos-x` int(10) NOT NULL,
+  `pos-y` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `featureds`
 --
 
-INSERT INTO `featureds` (`id`, `post_id`, `created_at`, `updated_at`) VALUES
-(1, 1164, NULL, NULL),
-(2, 945, NULL, NULL),
-(3, 34, NULL, NULL),
-(4, 1279, NULL, NULL),
-(5, 1480, NULL, NULL),
-(9, 620, NULL, NULL);
+INSERT INTO `featureds` (`id`, `post_id`, `created_at`, `updated_at`, `pos-x`, `pos-y`) VALUES
+(1, 1164, NULL, NULL, 50, 75),
+(2, 620, NULL, NULL, 50, 50),
+(3, 34, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 70, 50),
+(4, 1279, NULL, NULL, 10, 65),
+(5, 1480, NULL, NULL, 50, 70);
 
 -- --------------------------------------------------------
 
@@ -111,7 +112,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2023_03_14_145118_create_posts_table', 1),
 (6, '2023_03_15_110646_create_categories_table', 1),
 (7, '2023_03_15_110701_create_sub_categories_table', 1),
-(8, '2023_03_23_154707_create_featureds_table', 1);
+(8, '2023_03_23_154707_create_featureds_table', 1),
+(9, '2023_06_03_114156_create_showcase_table', 2);
 
 -- --------------------------------------------------------
 
@@ -1615,6 +1617,50 @@ INSERT INTO `posts` (`id`, `sub_category_id`, `title`, `photo`, `slug`, `created
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `showcase`
+--
+
+CREATE TABLE `showcase` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `published_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `showcase`
+--
+
+INSERT INTO `showcase` (`id`, `title`, `photo`, `slug`, `created_at`, `updated_at`, `published_at`) VALUES
+(2, 'Powder Mag. 1976--2', 'powder-mag.-1976--21685805287.webp', 'powder-mag.-1976--2', '2023-06-03 14:14:47', '2023-06-03 14:14:47', NULL),
+(3, 'Powder Mag 1984 _Best Photo Period_ John Falkiner & Ace Kvale', 'powder-mag-1984-_best-photo-period_-john-falkiner-&-ace-kvale1685805287.webp', 'powder-mag-1984-_best-photo-period_-john-falkiner-&-ace-kvale', '2023-06-03 14:14:47', '2023-06-03 14:14:47', NULL),
+(4, 'Powder-Ace Kvale 9-9', 'powder-ace-kvale-9-91685805550.webp', 'powder-ace-kvale-9-9', '2023-06-03 14:19:10', '2023-06-03 14:19:10', NULL),
+(5, 'Powder-Domonique Perret 12-7', 'powder-domonique-perret-12-71685805550.webp', 'powder-domonique-perret-12-7', '2023-06-03 14:19:10', '2023-06-03 14:19:10', NULL),
+(6, 'Powder-Glen Plake 3-14', 'powder-glen-plake-3-141685805550.webp', 'powder-glen-plake-3-14', '2023-06-03 14:19:10', '2023-06-03 14:19:10', NULL),
+(7, 'Gravity Slaves', 'gravity-slaves1685882753.webp', 'gravity-slaves', '2023-06-04 11:45:53', '2023-06-04 11:45:53', NULL),
+(8, 'K2 Surf 1990', 'k2-surf-19901685882754.webp', 'k2-surf-1990', '2023-06-04 11:45:54', '2023-06-04 11:45:54', NULL),
+(9, 'Le Nouvelliste', 'le-nouvelliste1685882754.webp', 'le-nouvelliste', '2023-06-04 11:45:54', '2023-06-04 11:45:54', NULL),
+(10, 'Paddles', 'paddles1685882755.webp', 'paddles', '2023-06-04 11:45:55', '2023-06-04 11:45:55', NULL),
+(11, 'Patagonia', 'patagonia1685882755.webp', 'patagonia', '2023-06-04 11:45:55', '2023-06-04 11:45:55', NULL),
+(12, 'Snow Magazine', 'snow-magazine1685882755.webp', 'snow-magazine', '2023-06-04 11:45:55', '2023-06-04 11:45:55', NULL),
+(13, 'Asolo', 'asolo1685885450.webp', 'asolo', '2023-06-04 12:30:50', '2023-06-04 12:30:50', NULL),
+(14, 'Quicksilver', 'quicksilver1685885450.webp', 'quicksilver', '2023-06-04 12:30:50', '2023-06-04 12:30:50', NULL),
+(15, 'Schweizer Illustré', 'schweizer-illustré1685885451.webp', 'schweizer-illustré', '2023-06-04 12:30:51', '2023-06-04 12:30:51', NULL),
+(16, 'Skier NZ 1992', 'skier-nz-19921685885451.webp', 'skier-nz-1992', '2023-06-04 12:30:52', '2023-06-04 12:30:52', NULL),
+(17, 'Swiss Bank Corporation', 'swiss-bank-corporation1685885452.webp', 'swiss-bank-corporation', '2023-06-04 12:30:52', '2023-06-04 12:30:52', NULL),
+(18, 'Golf Magazine CH 1992', 'golf-magazine-ch-19921685885714.webp', 'golf-magazine-ch-1992', '2023-06-04 12:35:14', '2023-06-04 12:35:14', NULL),
+(19, 'Les voyages à Ski', 'les-voyages-à-ski1685885714.webp', 'les-voyages-à-ski', '2023-06-04 12:35:15', '2023-06-04 12:35:15', NULL),
+(20, 'Powder', 'powder1685885715.webp', 'powder', '2023-06-04 12:35:16', '2023-06-04 12:35:16', NULL),
+(21, 'Quicksilver 2', 'quicksilver-21685885716.webp', 'quicksilver-2', '2023-06-04 12:35:16', '2023-06-04 12:35:16', NULL),
+(22, 'Quicksilver 3', 'quicksilver-31685885717.webp', 'quicksilver-3', '2023-06-04 12:35:17', '2023-06-04 12:35:17', NULL),
+(23, 'K2 Skis', 'k2-skis1685886243.webp', 'k2-skis', '2023-06-04 12:44:04', '2023-06-04 12:44:04', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sub_categories`
 --
 
@@ -1728,6 +1774,14 @@ ALTER TABLE `posts`
   ADD UNIQUE KEY `posts_slug_unique` (`slug`);
 
 --
+-- Indexes for table `showcase`
+--
+ALTER TABLE `showcase`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `showcase_title_unique` (`title`),
+  ADD UNIQUE KEY `showcase_slug_unique` (`slug`);
+
+--
 -- Indexes for table `sub_categories`
 --
 ALTER TABLE `sub_categories`
@@ -1760,13 +1814,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `featureds`
 --
 ALTER TABLE `featureds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1778,7 +1832,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1485;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1489;
+
+--
+-- AUTO_INCREMENT for table `showcase`
+--
+ALTER TABLE `showcase`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `sub_categories`
