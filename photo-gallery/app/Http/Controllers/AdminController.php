@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\SubCategory;
 use App\Models\Category;
+use Exception;
 use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
@@ -30,19 +31,23 @@ class AdminController extends Controller
     {
 
         request()->validate([
-            'photos' => 'required',
-            'photos.*' => 'image',
+            'photos' => 'required|max:5',
+            'photos.*' => 'image|max:25000',
             'sub_category_id' => 'required'
         ]);
 
         foreach (request()->file('photos') as $photo) {
-            $post = [];
-            $post['title'] = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
-            $post['slug'] = str_replace('#', 'no.', str_replace(' ', '-', strtolower($post['title'])));
-            $post['photo'] = $photo;
-            $post['photo'] = $this->toWebp($post);
-            $post['sub_category_id'] = request('sub_category_id');
-            Post::create($post);
+            try {
+                $post = [];
+                $post['title'] = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+                $post['slug'] = str_replace('#', 'no.', str_replace(' ', '-', strtolower($post['title'])));
+                $post['photo'] = $photo;
+                $post['photo'] = $this->toWebp($post);
+                $post['sub_category_id'] = request('sub_category_id');
+                Post::create($post);
+            } catch(Exception $e) {
+                return redirect('/admin')->with('failure', "Failed to add " . pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME) . ".");
+            }
         }
         
 
