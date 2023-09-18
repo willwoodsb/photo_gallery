@@ -28,7 +28,7 @@
                 </div>
             @endforeach
         </div>
-
+        <i class="fa-solid fa-x absolute right-0 p-8 text-2xl text-white cursor-pointer" id="X"></i>
         @unless ($posts->count() < 2)
         <div class="arrow">
             <i class="fa-solid fa-chevron-left arrow-left"></i>

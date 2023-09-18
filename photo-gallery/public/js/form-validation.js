@@ -33,7 +33,6 @@ input.on('keyup', function (event) {
 function submitForm(userInput){
     $('.submit-button').addClass('button-loading');
     $('.submit-button').prop('disabled', true);
-    console.log('yampikl');
     validateEmail(userInput.email);
     notempty(userInput.fname);
     notempty(userInput.lname);

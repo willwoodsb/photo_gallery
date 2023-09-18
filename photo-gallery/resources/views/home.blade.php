@@ -3,64 +3,67 @@
 <x-base-layout title="Home">
     <x-scroll-top />
     <x-side-menu :categories="$categories" :internal="true"/>
-    <header class="border-bottom" id="header">
-        <h1 class="hidden">Home</h1>
-        <div class="width">
-            <x-header-bar internal="true" />
-        </div>
-        
-        <nav class="flex flex-row justify-center mx-auto pt-4 width lg-menu">
-            @foreach($categories as $cat)
-                <div class="nav-item nav-item-home text-center text-midnight px-1">
-                
-                    <a href="/category/{{ $cat->slug }}" class="flex flex-col justify-center h-16 py-2 nav-link" style="width: full;">
+    <div class="h-screen flex flex-col">
+        <header class="border-bottom" id="header">
+            <h1 class="hidden">Home</h1>
+            <div class="width">
+                <x-header-bar internal="true" />
+            </div>
+            
+            <nav class="flex flex-row justify-center mx-auto pt-4 width lg-menu">
+                @foreach($categories as $cat)
+                    <div class="nav-item nav-item-home text-center text-midnight px-1">
+                    
+                        <a href="/category/{{ $cat->slug }}" class="flex flex-col justify-center h-16 py-2 nav-link" style="width: full;">
 
-                        <div class="p-2 uppercase text-sm">
-                            {{ ucwords($cat->name) }}
+                            <div class="p-2 uppercase text-sm">
+                                {{ ucwords($cat->name) }}
+                            </div>
+                        </a>
+                        
+                        <div class="dropdown px-3 w-full bg-gray-100">
+                            @foreach($cat->subCategories as $sub)
+                                <p class="py-2 hover:underline text-sm">
+                                    <a href="/category/{{$cat->slug}}?sub-cat={{$sub->slug}}" >
+                                        {{ ucwords($sub->name) }}
+                                    </a>
+                                </p>
+                            @endforeach
+
                         </div>
-                    </a>
-                    
-                    <div class="dropdown px-3 w-full bg-gray-100">
-                        @foreach($cat->subCategories as $sub)
-                            <p class="py-2 hover:underline text-sm">
-                                <a href="/category/{{$cat->slug}}?sub-cat={{$sub->slug}}" >
-                                    {{ ucwords($sub->name) }}
-                                </a>
-                            </p>
-                        @endforeach
-
                     </div>
-                </div>
-            @endforeach
-        </nav>
-    </header>
+                @endforeach
+            </nav>
+        </header>
 
-    <section class="">
-        <div class="featured bg-black">
-            @foreach ($posts as $post)
-                @php
-                    $featured_cat = $post->category;
-                @endphp
-                <div class="featured-item" id="{{$featured_cat->id - 1}}">
-                    <img src="{{ asset('photos/'.$post->photo) }}" alt="{{$post->title}}" 
-                        style="object-position: {{$coordinates[$loop->index][0]}}% {{$coordinates[$loop->index][1]}}%;"
-                    />
-                    <div class="overlay"></div>
-                    <div class="cat-link flex flex-col">
-                        <a class="uppercase font-bold" href="/category/{{$featured_cat->slug}}"><h1>{{$featured_cat->name}}</h1></a>
+        <section class="h-full">
+            <div class="featured bg-black h-full">
+                @foreach ($posts as $post)
+                    @php
+                        $featured_cat = $post->category;
+                    @endphp
+                    <div class="featured-item" id="{{$featured_cat->id - 1}}">
+                        <img src="{{ asset('photos/'.$post->photo) }}" alt="{{$post->title}}" 
+                            style="object-position: {{$coordinates[$loop->index][0]}}% {{$coordinates[$loop->index][1]}}%;"
+                        />
+                        <div class="overlay"></div>
+                        <div class="cat-link flex flex-col">
+                            <a class="uppercase font-bold" href="/category/{{$featured_cat->slug}}"><h1>{{$featured_cat->name}}</h1></a>
 
-                        <div class="h-px bg-white my-auto cat-line"></div>
+                            <div class="h-px bg-white my-auto cat-line"></div>
+                        </div>
+                        
                     </div>
-                    
-                </div>
-            @endforeach
-            <a href="#about-me" class="arrow-container scroll">
-                <div class="chevron"></div>
-                <div class="chevron"></div>
-                <div class="chevron"></div>
-            </a>
-        </div>
-    </section>
+                @endforeach
+                <a href="#about-me" class="arrow-container scroll">
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                </a>
+            </div>
+        </section>
+    </div>
+    
     <section class="scroll-content width width-limited " id="about-me">
         <div class="scroll-content__inner py-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">

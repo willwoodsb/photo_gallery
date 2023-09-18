@@ -1,8 +1,8 @@
 let currentSlide = 0;
 let photoCount;
 let aboutMe = false;
-const home = $('.featured').length;
-const show = $('.showcase').length;
+const home = ($('.featured') && $('.featured').length);
+const showcase = ($('#showcase') && $('#showcase').length);
 let english = true;
 $(document).ready(function(){
 
@@ -18,9 +18,7 @@ $(document).ready(function(){
 
     photoCount = photoNumber();
 
-    featuredHeight();
-
-    if ($('.featured').length) {
+    if (home) {
         $(`#0`).fadeIn(300);
     }
     $('.masonry-grid').masonry({
@@ -146,7 +144,6 @@ $('.scroll').on('click', function(event) {
 
 
 $('#slide-overlay').on('click', function (e) {
-    console.log(e.target);
     if (e.target.id.length) {
         $('#slide-overlay').css('visibility', 'collapse');
         $('.slide-container-active').hide().removeClass('slide-container-active');
@@ -202,9 +199,6 @@ $(".delete").submit(function(e) {
     }
 });
 
-$(window).on('resize', function(){
-    featuredHeight();
-})
 
 open = false;
 $('.open').on('click', function(e) {
@@ -245,11 +239,6 @@ function changeSlide (currentSlide) {
         $(`#img-${currentSlide}`).addClass('slide-container-active').fadeIn(200);
     }, 200)
     
-}
-
-function featuredHeight() {
-    let height = $(window).height() - $('header').height();
-    $('.featured').css('height', height);
 }
 
 function getTarget(e) {
