@@ -8,13 +8,17 @@ use App\Models\SubCategory;
 use App\Models\Category;
 use Exception;
 use Illuminate\Validation\Rule;
+use App\Rules\ValidFilename;
 
 class AdminController extends Controller
 {
     public function index()
     {
         return view('admin', [
-            'posts' => Post::latest()->filter()->paginate(15),
+            'posts' => Post::latest()
+                ->filter()
+                ->paginate(15)
+                ->appends(request()->query()),
             'subCategories' => SubCategory::all()
         ]);
     }
@@ -32,7 +36,7 @@ class AdminController extends Controller
 
         request()->validate([
             'photos' => 'required|max:5',
-            'photos.*' => 'image|max:25000',
+            'photos.*' => ['image', 'max:25000', new ValidFilename],
             'sub_category_id' => 'required'
         ]);
 
