@@ -42,7 +42,7 @@
                     @php
                         $featured_cat = $post->category;
                     @endphp
-                    <div class="featured-item" id="{{$featured_cat->id - 1}}">
+                    <div class="featured-item" id="{{$loop->index}}">
                         <img src="{{ asset('photos/'.$post->photo) }}" alt="{{$post->title}}" 
                             style="object-position: {{$coordinates[$loop->index][0]}}% {{$coordinates[$loop->index][1]}}%;"
                         />
