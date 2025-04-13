@@ -38,12 +38,15 @@ $(document).ready(function(){
 
     if (showcase) {
         $(document).ready(function(){
-            $('.owl-carousel').owlCarousel({
-                dots: false,
-                autoWidth: true,
-                nav: true,
-                mouseDrag: false
-            });
+            setTimeout(() => {
+                $('.owl-carousel').owlCarousel({
+                    dots: false,
+                    autoWidth: true,
+                    nav: true,
+                    mouseDrag: false
+                });
+            }, 0);
+            
         });
     }
 
