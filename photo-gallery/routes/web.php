@@ -55,3 +55,7 @@ Route::get('/admin/showcase/edit/{showcase:slug}', [ShowcaseController::class, '
 Route::patch('/admin/showcase/edit/{showcase:slug}', [ShowcaseController::class, 'update'])->middleware('admin');
 Route::delete('admin/showcase/delete/{showcase:slug}', [ShowcaseController::class, 'destroy'])->middleware('admin');
 
+Route::fallback(function () {
+    return redirect('/');
+});
+
