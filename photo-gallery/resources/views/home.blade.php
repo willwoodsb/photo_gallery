@@ -5,7 +5,7 @@
     <x-side-menu :categories="$categories" :internal="true"/>
     <div class="h-screen flex flex-col">
         <header class="border-bottom" id="header">
-            <h1 class="hidden">Home</h1>
+            <h1 class="hidden">Marko Shapiro Photos</h1>
             <div class="width">
                 <x-header-bar internal="true" />
             </div>
