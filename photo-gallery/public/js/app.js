@@ -45,7 +45,7 @@ $(document).ready(function(){
                     nav: true,
                     mouseDrag: false
                 });
-            }, 0);
+            }, 1000);
             
         });
     }
